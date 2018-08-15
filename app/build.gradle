@@ -1,7 +1,9 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.apollographql.android'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-noarg'
 
 kotlin {
     experimental {
@@ -10,6 +12,10 @@ kotlin {
     androidExtensions {
         experimental = true
     }
+}
+
+noArg {
+    annotations "com.me.guanpj.kotlinhub.util.anno.PoKo"
 }
 
 android {
@@ -94,4 +100,5 @@ dependencies {
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
     implementation 'com.takwolf.android:hf-recyclerview:0.3.2'
+    implementation 'org.slf4j:slf4j-api:1.7.21'
 }

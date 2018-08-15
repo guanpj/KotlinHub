@@ -1,4 +1,4 @@
-package com.me.guanpj.kotlinhub.control
+package com.me.guanpj.kotlinhub.core
 
 import android.app.Activity
 import android.app.Application

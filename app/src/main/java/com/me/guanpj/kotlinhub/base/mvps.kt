@@ -1,6 +1,6 @@
 package com.me.guanpj.kotlinhub.base
 
-interface IPresenter<out V : IMvpView<IPresenter<V>>> {
+interface IPresenter<out V : IMvpView> {
     val view: V
 
     fun onAttatch(view: @UnsafeVariance V)
@@ -8,6 +8,5 @@ interface IPresenter<out V : IMvpView<IPresenter<V>>> {
     fun onDetach()
 }
 
-interface IMvpView<out P : IPresenter<IMvpView<P>>> {
-    val presenter: P
+interface IMvpView {
 }

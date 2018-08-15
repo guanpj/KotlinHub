@@ -1,4 +1,4 @@
-package com.me.guanpj.kotlinhub.control
+package com.me.guanpj.kotlinhub.core
 
 object AppStatus {
     val STATUS_FORCE_KILLED = -1

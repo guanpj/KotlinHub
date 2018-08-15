@@ -6,8 +6,8 @@ import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import com.me.guanpj.kotlinhub.MainActivity
 import com.me.guanpj.kotlinhub.SplashActivity
-import com.me.guanpj.kotlinhub.control.AppStatus
-import com.me.guanpj.kotlinhub.control.AppStatusTracker
+import com.me.guanpj.kotlinhub.core.AppStatus
+import com.me.guanpj.kotlinhub.core.AppStatusTracker
 
 abstract class BaseActivity : AppCompatActivity() {
     override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
