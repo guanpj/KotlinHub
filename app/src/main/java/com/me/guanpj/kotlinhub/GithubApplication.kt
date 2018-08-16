@@ -5,7 +5,10 @@ import android.app.Application
 import android.content.Context
 import android.content.ContextWrapper
 import android.support.multidex.MultiDex
+import com.me.guanpj.kotlinhub.di.component.AppComponent
 import com.me.guanpj.kotlinhub.di.component.DaggerAppComponent
+import com.me.guanpj.kotlinhub.di.module.AppModule
+import com.me.guanpj.kotlinhub.di.module.NetworkModule
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
@@ -18,9 +21,15 @@ class GithubApplication : Application(), HasActivityInjector {
     @Inject
     lateinit var mAndroidInjector: DispatchingAndroidInjector<Activity>
 
+    lateinit var appComponent: AppComponent
+
     override fun onCreate() {
         super.onCreate()
-        DaggerAppComponent.builder().build().inject(this)
+        appComponent = DaggerAppComponent.builder()
+                .appModule(AppModule(this))
+                .networkModule(NetworkModule())
+                .build()
+        appComponent.inject(this)
         INSTANCE = this
     }
 

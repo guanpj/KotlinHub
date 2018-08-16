@@ -1,7 +1,7 @@
 package com.me.guanpj.kotlinhub.data.remote.interceptors
 
 import android.util.Base64
-import com.me.guanpj.kotlinhub.data.remote.model.AccountManager
+import com.me.guanpj.kotlinhub.core.AccountManager
 import okhttp3.Interceptor
 import okhttp3.Interceptor.Chain
 import okhttp3.Response

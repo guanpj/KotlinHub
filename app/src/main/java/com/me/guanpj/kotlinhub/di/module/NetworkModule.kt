@@ -4,6 +4,7 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.Coroutin
 import com.me.guanpj.kotlinhub.GithubApplication
 import com.me.guanpj.kotlinhub.core.Configs
 import com.me.guanpj.kotlinhub.data.remote.api.AuthApi
+import com.me.guanpj.kotlinhub.data.remote.api.UserApi
 import com.me.guanpj.kotlinhub.data.remote.compat.enableTls12OnPreLollipop
 import com.me.guanpj.kotlinhub.data.remote.interceptors.AcceptInterceptor
 import com.me.guanpj.kotlinhub.data.remote.interceptors.AuthInterceptor
@@ -31,6 +32,10 @@ class NetworkModule {
     @Singleton
     @Provides
     fun provideAuthApi(retrofit: Retrofit) : AuthApi = retrofit.create(AuthApi::class.java)
+
+    @Singleton
+    @Provides
+    fun provideUserApi(retrofit: Retrofit) : UserApi = retrofit.create(UserApi::class.java)
 
     @Singleton
     @Provides

@@ -1,19 +1,23 @@
 package com.me.guanpj.kotlinhub.module.login
 
 import com.me.guanpj.kotlinhub.base.BasePresenter
-import com.me.guanpj.kotlinhub.data.remote.model.AccountManager
-import com.me.guanpj.kotlinhub.data.remote.service.AuthApi
-import com.me.guanpj.kotlinhub.data.remote.service.AuthService
-import com.me.guanpj.kotlinhub.data.remote.service.UserService
+import com.me.guanpj.kotlinhub.data.remote.api.AuthApi
+import com.me.guanpj.kotlinhub.data.remote.api.UserApi
+import com.me.guanpj.kotlinhub.core.AccountManager
 import com.me.guanpj.kotlinhub.entity.AuthorizationReq
+import com.me.guanpj.kotlinhub.entity.AuthorizationRsp
 import com.me.guanpj.kotlinhub.util.RxUtil
 import io.reactivex.Observable
+import io.reactivex.schedulers.Schedulers
+import retrofit2.HttpException
 import javax.inject.Inject
 
 class LoginPresenter @Inject constructor() : BasePresenter<LoginContract.View>(), LoginContract.Presenter {
 
     @Inject
     lateinit var authApi: AuthApi
+    @Inject
+    lateinit var userApi: UserApi
 
     fun checkUserName(name: String): Boolean {
         return true
@@ -26,22 +30,15 @@ class LoginPresenter @Inject constructor() : BasePresenter<LoginContract.View>()
     fun doLogin(name: String, passwd: String) {
         AccountManager.username = name
         AccountManager.passwd = passwd
-        /*AccountManager.login()
-                .compose(RxUtil.observableThreadTransformer())
-                .subscribe({
-                    view.onLoginSuccess()
-                }, {
-                    view.onLoginError(it)
-                })*/
         authApi.createAuthorization(AuthorizationReq())
-                .compose(RxUtil.observableThreadTransformer())
                 .doOnNext {
-                    if (it.token.isEmpty()) throw AccountManager.AccountException(it)
+                    if (it.token.isEmpty()) throw AccountException(it)
                 }
+                .observeOn(Schedulers.io())
                 .retryWhen {
                     it.flatMap {
-                        if (it is AccountManager.AccountException) {
-                            AuthService.deleteAuthorization(it.authorizationRsp.id)
+                        if (it is AccountException) {
+                            authApi.deleteAuthorization(it.authorizationRsp.id)
                         } else {
                             Observable.error(it)
                         }
@@ -50,11 +47,12 @@ class LoginPresenter @Inject constructor() : BasePresenter<LoginContract.View>()
                 .flatMap {
                     AccountManager.token = it.token
                     AccountManager.authId = it.id
-                    UserService.getAuthenticatedUser()
+                    userApi.getAuthenticatedUser()
                 }
+                .compose(RxUtil.observableThreadTransformer())
                 .map {
                     AccountManager.currentUser = it
-                    AccountManager.notifyLogin(it)
+                    //AccountManager.notifyLogin(it)
                 }
                 .subscribe({
                     view.onLoginSuccess()
@@ -62,5 +60,19 @@ class LoginPresenter @Inject constructor() : BasePresenter<LoginContract.View>()
                     view.onLoginError(it)
                 })
     }
+
+    fun logout() = authApi.deleteAuthorization(AccountManager.authId)
+            .doOnNext {
+                if (it.isSuccessful) {
+                    AccountManager.authId = -1
+                    AccountManager.token = ""
+                    AccountManager.currentUser = null
+                    //AccountManager.notifyLogout(it)
+                } else {
+                    throw HttpException(it)
+                }
+            }
+
+    class AccountException(val authorizationRsp: AuthorizationRsp) : Exception("Already logged in.")
 
 }

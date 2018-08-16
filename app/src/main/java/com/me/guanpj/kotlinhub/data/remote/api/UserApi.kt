@@ -1,6 +1,5 @@
-package com.me.guanpj.kotlinhub.data.remote.service
+package com.me.guanpj.kotlinhub.data.remote.api
 
-import com.me.guanpj.kotlinhub.data.remote.retrofit
 import com.me.guanpj.kotlinhub.entity.User
 import com.me.guanpj.kotlinhub.util.GitHubPaging
 import io.reactivex.Observable
@@ -23,5 +22,3 @@ interface UserApi {
     fun followers(@Path("login") login: String, @Query("page") page: Int = 1): Observable<GitHubPaging<User>>
 
 }
-
-object UserService: UserApi by retrofit.create(UserApi::class.java)
