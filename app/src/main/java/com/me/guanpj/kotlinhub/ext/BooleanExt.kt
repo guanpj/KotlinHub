@@ -2,18 +2,18 @@ package com.me.guanpj.kotlinhub.ext
 
 sealed class BooleanExt<out T>
 
-object Otherwise: BooleanExt<Nothing>()
-class WithData<T>(val data: T): BooleanExt<T>()
+object Otherwise : BooleanExt<Nothing>()
+class WithData<T>(val data: T) : BooleanExt<T>()
 
-inline fun <T> Boolean.yes(block: ()->T) =
-    when {
-        this -> {
-            WithData(block())
+inline fun <T> Boolean.yes(block: () -> T) =
+        when {
+            this -> {
+                WithData(block())
+            }
+            else -> {
+                Otherwise
+            }
         }
-        else -> {
-            Otherwise
-        }
-    }
 
 inline fun <T> Boolean.no(block: () -> T) = when {
     this -> Otherwise
@@ -22,8 +22,8 @@ inline fun <T> Boolean.no(block: () -> T) = when {
     }
 }
 
-inline fun <T> BooleanExt<T>.otherwise(block: ()->T): T =
-        when(this){
+inline fun <T> BooleanExt<T>.otherwise(block: () -> T): T =
+        when (this) {
             is Otherwise -> block()
             is WithData -> this.data
         }

@@ -43,7 +43,7 @@ object AccountManager {
 
     val onAccountStateChangeListeners = ArrayList<OnAccountStateChangeListener>()
 
-    private fun notifyLogin(user: User) {
+    fun notifyLogin(user: User) {
         onAccountStateChangeListeners.forEach {
             it.onLogin(user)
         }

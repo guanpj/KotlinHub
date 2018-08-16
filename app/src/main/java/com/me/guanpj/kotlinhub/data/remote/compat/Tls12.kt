@@ -1,17 +1,12 @@
-package com.bennyhuo.github.network.compat
+package com.me.guanpj.kotlinhub.data.remote.compat
 
 import android.os.Build
 import android.util.Log
-import com.me.guanpj.kotlinhub.data.remote.compat.Tls12SocketFactory
 import okhttp3.ConnectionSpec
 import okhttp3.OkHttpClient
 import okhttp3.TlsVersion
 import javax.net.ssl.SSLContext
 
-
-/**
- * Created by benny on 2018/4/25.
- */
 fun OkHttpClient.Builder.enableTls12OnPreLollipop(): OkHttpClient.Builder {
     if (Build.VERSION.SDK_INT in 16..21) {
         try {

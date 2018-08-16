@@ -5,7 +5,7 @@ import com.me.guanpj.kotlinhub.ext.logger
 import com.me.guanpj.kotlinhub.ext.no
 import com.me.guanpj.kotlinhub.ext.otherwise
 import com.me.guanpj.kotlinhub.ext.yes
-import com.me.guanpj.kotlinhub.util.Network
+import com.me.guanpj.kotlinhub.util.NetworkUtil
 import okhttp3.CacheControl
 import okhttp3.Interceptor
 import okhttp3.Interceptor.Chain
@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit
 class CacheInterceptor : Interceptor {
     override fun intercept(chain: Chain): Response {
         var request = chain.request()
-        request = Network.isAvailable()
+        request = NetworkUtil.isAvailable()
                 .no {
                     request.newBuilder()
                             .cacheControl(CacheControl.FORCE_CACHE)

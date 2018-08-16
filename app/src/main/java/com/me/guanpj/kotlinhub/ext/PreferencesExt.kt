@@ -1,4 +1,4 @@
-package com.bennyhuo.github.common.sharedpreferences
+package com.me.guanpj.kotlinhub.ext
 
 import android.content.Context
 import kotlin.properties.ReadWriteProperty

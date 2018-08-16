@@ -1,6 +1,8 @@
 package com.me.guanpj.kotlinhub.data.remote
 
-import com.me.guanpj.kotlinhub.Application
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
+import com.me.guanpj.kotlinhub.GithubApplication
+import com.me.guanpj.kotlinhub.data.remote.compat.enableTls12OnPreLollipop
 import com.me.guanpj.kotlinhub.data.remote.interceptors.AcceptInterceptor
 import com.me.guanpj.kotlinhub.data.remote.interceptors.AuthInterceptor
 import com.me.guanpj.kotlinhub.data.remote.interceptors.CacheInterceptor
@@ -21,14 +23,14 @@ private const val BASE_URL = "https://api.github.com"
 const val FORCE_NETWORK = "forceNetwork"
 
 private val cacheFile by lazy {
-    File(Application.AppContext.cacheDir, "webServiceApi").apply { ensureDir() }
+    File(GithubApplication.AppContext.cacheDir, "webServiceApi").apply { ensureDir() }
 }
 
 val retrofit by lazy {
     Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            //.addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(OkHttpClient.Builder()
                     .connectTimeout(60, TimeUnit.SECONDS)
                     .readTimeout(60, TimeUnit.SECONDS)
@@ -38,7 +40,7 @@ val retrofit by lazy {
                     .addInterceptor(AuthInterceptor())
                     .addInterceptor(CacheInterceptor())
                     .addInterceptor(HttpLoggingInterceptor().setLevel(Level.BODY))
-                    //.enableTls12OnPreLollipop()
+                    .enableTls12OnPreLollipop()
                     .build()
             )
             .baseUrl(BASE_URL)

@@ -1,5 +1,6 @@
 package com.me.guanpj.kotlinhub.module.login
 
+import android.os.Bundle
 import android.widget.EditText
 import com.me.guanpj.kotlinhub.R
 import com.me.guanpj.kotlinhub.base.activity.BaseMvpActivity
@@ -12,14 +13,10 @@ import org.jetbrains.anko.toast
 
 class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginContract.View {
 
-
-    override fun initView() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-    }
-
-    override fun initDataAndEvent() {
         setSupportActionBar(toolbar)
-
         signInButton.onClick {
             presenter.checkUserName(username.text.toString())
                     .yes {
@@ -35,6 +32,13 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginContract.View {
                         showTips(username, "用户名不合法")
                     }
         }
+    }
+
+    override fun initView() {
+    }
+
+    override fun initDataAndEvent() {
+
     }
 
     override fun onLoginError(e: Throwable){
