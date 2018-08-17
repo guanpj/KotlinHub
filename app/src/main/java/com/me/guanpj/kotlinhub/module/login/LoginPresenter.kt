@@ -1,14 +1,12 @@
 package com.me.guanpj.kotlinhub.module.login
 
 import com.me.guanpj.kotlinhub.base.BasePresenter
+import com.me.guanpj.kotlinhub.core.AccountManager
 import com.me.guanpj.kotlinhub.data.remote.api.AuthApi
 import com.me.guanpj.kotlinhub.data.remote.api.UserApi
-import com.me.guanpj.kotlinhub.core.AccountManager
 import com.me.guanpj.kotlinhub.entity.AuthorizationReq
 import com.me.guanpj.kotlinhub.entity.AuthorizationRsp
-import com.me.guanpj.kotlinhub.util.RxUtil
 import io.reactivex.Observable
-import io.reactivex.schedulers.Schedulers
 import retrofit2.HttpException
 import javax.inject.Inject
 
@@ -34,7 +32,6 @@ class LoginPresenter @Inject constructor() : BasePresenter<LoginContract.View>()
                 .doOnNext {
                     if (it.token.isEmpty()) throw AccountException(it)
                 }
-                .observeOn(Schedulers.io())
                 .retryWhen {
                     it.flatMap {
                         if (it is AccountException) {
@@ -49,7 +46,6 @@ class LoginPresenter @Inject constructor() : BasePresenter<LoginContract.View>()
                     AccountManager.authId = it.id
                     userApi.getAuthenticatedUser()
                 }
-                .compose(RxUtil.observableThreadTransformer())
                 .map {
                     AccountManager.currentUser = it
                     //AccountManager.notifyLogin(it)

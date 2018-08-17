@@ -10,7 +10,6 @@ import android.os.Bundle
 import java.util.*
 
 class AppStatusTracker private constructor(private val application: Application) : Application.ActivityLifecycleCallbacks {
-    private val MAX_INTERVAL = (5 * 60 * 1000).toLong()
     private var allActivities: MutableSet<Activity>? = null
     private var appStatus = AppStatus.STATUS_FORCE_KILLED
     var isForground: Boolean = false
@@ -19,16 +18,13 @@ class AppStatusTracker private constructor(private val application: Application)
     private var isScreenOff: Boolean = false
     private var receiver: DeamonReceiver? = null
 
-    init {
-        application.registerActivityLifecycleCallbacks(this)
-    }
-
     companion object {
         @Volatile
-        var instance: AppStatusTracker? = null
+        var INSTANCE: AppStatusTracker? = null
 
         fun init(application: Application) {
-            instance = AppStatusTracker(application)
+            INSTANCE = AppStatusTracker(application)
+            application.registerActivityLifecycleCallbacks(INSTANCE)
         }
     }
 
@@ -53,7 +49,7 @@ class AppStatusTracker private constructor(private val application: Application)
         this.isScreenOff = isScreenOff
     }
 
-    override fun onActivityCreated(activity: Activity, bundle: Bundle) {
+    override fun onActivityCreated(activity: Activity, bundle: Bundle?) {
         addActivity(activity)
     }
 
@@ -79,7 +75,7 @@ class AppStatusTracker private constructor(private val application: Application)
         }
     }
 
-    override fun onActivitySaveInstanceState(activity: Activity, bundle: Bundle) {
+    override fun onActivitySaveInstanceState(activity: Activity, bundle: Bundle?) {
 
     }
 
@@ -113,7 +109,7 @@ class AppStatusTracker private constructor(private val application: Application)
 
     private inner class DeamonReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            if (Intent.ACTION_SCREEN_OFF == intent.action) AppStatusTracker.instance!!.onScreenOff(true)
+            if (Intent.ACTION_SCREEN_OFF == intent.action) AppStatusTracker.INSTANCE!!.onScreenOff(true)
         }
     }
 }

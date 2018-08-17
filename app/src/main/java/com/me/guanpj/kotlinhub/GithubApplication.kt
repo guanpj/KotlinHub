@@ -5,6 +5,7 @@ import android.app.Application
 import android.content.Context
 import android.content.ContextWrapper
 import android.support.multidex.MultiDex
+import com.me.guanpj.kotlinhub.core.AppStatusTracker
 import com.me.guanpj.kotlinhub.di.component.AppComponent
 import com.me.guanpj.kotlinhub.di.component.DaggerAppComponent
 import com.me.guanpj.kotlinhub.di.module.AppModule
@@ -30,6 +31,7 @@ class GithubApplication : Application(), HasActivityInjector {
                 .networkModule(NetworkModule())
                 .build()
         appComponent.inject(this)
+        AppStatusTracker.init(this)
         INSTANCE = this
     }
 

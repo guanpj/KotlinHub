@@ -13,9 +13,10 @@ import org.jetbrains.anko.toast
 
 class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginContract.View {
 
+    override fun getLayoutResId(): Int = R.layout.activity_login
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
         setSupportActionBar(toolbar)
         signInButton.onClick {
             presenter.checkUserName(username.text.toString())

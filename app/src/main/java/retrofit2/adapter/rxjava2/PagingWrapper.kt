@@ -1,6 +1,6 @@
-package com.me.guanpj.kotlinhub.util
+package retrofit2.adapter.rxjava2
 
-abstract class PagingWrapper<T>{
+abstract class PagingWrapper<T> {
 
     abstract fun getElements(): List<T>
 

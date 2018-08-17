@@ -12,11 +12,13 @@ import com.me.guanpj.kotlinhub.data.remote.interceptors.CacheInterceptor
 import com.me.guanpj.kotlinhub.ext.ensureDir
 import dagger.Module
 import dagger.Provides
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.adapter.rxjava2.MyRxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
@@ -58,7 +60,7 @@ class NetworkModule {
     fun provideRetrofit(client: OkHttpClient) : Retrofit {
         return Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addCallAdapterFactory(MyRxJava2CallAdapterFactory.createWithScheduler(Schedulers.io(), AndroidSchedulers.mainThread()))
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .client(client)
                 .baseUrl(Configs.BASE_URL)
