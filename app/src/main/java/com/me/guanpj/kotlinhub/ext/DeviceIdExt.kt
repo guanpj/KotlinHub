@@ -1,4 +1,4 @@
-package com.me.guanpj.kotlinhub.entity
+package com.me.guanpj.kotlinhub.ext
 
 import android.content.Context
 import android.provider.Settings

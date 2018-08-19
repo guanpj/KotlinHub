@@ -1,7 +1,7 @@
 package com.me.guanpj.kotlinhub.core
 
 import com.me.guanpj.kotlinhub.GithubApplication
-import com.me.guanpj.kotlinhub.entity.deviceId
+import com.me.guanpj.kotlinhub.ext.deviceId
 import com.me.guanpj.kotlinhub.ext.logger
 
 object Configs {

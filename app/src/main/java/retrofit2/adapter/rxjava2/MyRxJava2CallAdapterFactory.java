@@ -116,8 +116,8 @@ public final class MyRxJava2CallAdapterFactory extends CallAdapter.Factory {
         if (rawType == Completable.class) {
             // Completable is not parameterized (which is what the rest of this method deals with) so it
             // can only be created with a single configuration.
-            return new MyRxJava2CallAdapter(Void.class, subscribeOnScheduler, observerOnScheduler, isAsync, false, true, false, false,
-                    false, true);
+            return new MyRxJava2CallAdapter(Void.class, subscribeOnScheduler, observerOnScheduler, isAsync,
+                    false, true, false, false, false, false, true);
         }
 
         boolean isFlowable = rawType == Flowable.class;
@@ -129,6 +129,7 @@ public final class MyRxJava2CallAdapterFactory extends CallAdapter.Factory {
 
         boolean isResult = false;
         boolean isBody = false;
+        boolean isPaging = false;
         Type responseType;
         if (!(returnType instanceof ParameterizedType)) {
             String name = isFlowable ? "Flowable"
@@ -153,12 +154,22 @@ public final class MyRxJava2CallAdapterFactory extends CallAdapter.Factory {
             }
             responseType = getParameterUpperBound(0, (ParameterizedType) observableType);
             isResult = true;
+        } else if (rawObservableType == GitHubPaging.class) {
+            if (!(observableType instanceof ParameterizedType)) {
+                throw new IllegalStateException("Result must be parameterized"
+                        + " as GitHubPaging<Foo> or GitHubPaging<? extends Foo>");
+            }
+            responseType = observableType;
+            isPaging = true;
+        } else if(PagingWrapper.class.isAssignableFrom(rawObservableType)){
+            responseType = observableType;
+            isPaging = true;
         } else {
             responseType = observableType;
             isBody = true;
         }
 
-        return new MyRxJava2CallAdapter(responseType, subscribeOnScheduler, observerOnScheduler, isAsync, isResult, isBody, isFlowable,
-                isSingle, isMaybe, false);
+        return new MyRxJava2CallAdapter(responseType, subscribeOnScheduler, observerOnScheduler, isAsync, isResult, isBody, isPaging,
+                isFlowable, isSingle, isMaybe, false);
     }
 }
