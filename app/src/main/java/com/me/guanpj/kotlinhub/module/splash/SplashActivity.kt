@@ -22,7 +22,7 @@ class SplashActivity : BaseActivity() {
     }
 
     override fun initDataAndEvent() {
-        Observable.timer(1, TimeUnit.MILLISECONDS).subscribe { jumpToActivity(LoginActivity::class.java) }
+        Observable.timer(1, TimeUnit.MILLISECONDS).subscribe { jumpToActivity(LoginActivity::class) }
     }
 
 }

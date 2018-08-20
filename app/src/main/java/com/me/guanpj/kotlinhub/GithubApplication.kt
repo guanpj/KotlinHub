@@ -8,7 +8,6 @@ import android.support.multidex.MultiDex
 import com.me.guanpj.kotlinhub.core.AppStatusTracker
 import com.me.guanpj.kotlinhub.di.component.AppComponent
 import com.me.guanpj.kotlinhub.di.component.DaggerAppComponent
-import com.me.guanpj.kotlinhub.di.module.AppModule
 import com.me.guanpj.kotlinhub.di.module.NetworkModule
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -27,7 +26,7 @@ class GithubApplication : Application(), HasActivityInjector {
     override fun onCreate() {
         super.onCreate()
         appComponent = DaggerAppComponent.builder()
-                .appModule(AppModule(this))
+                //.appModule(AppModule(this))
                 .networkModule(NetworkModule())
                 .build()
         appComponent.inject(this)

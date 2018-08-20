@@ -6,6 +6,7 @@ import com.me.guanpj.kotlinhub.R
 import com.me.guanpj.kotlinhub.base.activity.BaseMvpActivity
 import com.me.guanpj.kotlinhub.ext.otherwise
 import com.me.guanpj.kotlinhub.ext.yes
+import com.me.guanpj.kotlinhub.module.main.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.app_bar_simple.*
 import org.jetbrains.anko.sdk15.listeners.onClick
@@ -19,18 +20,18 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginContract.View {
         super.onCreate(savedInstanceState)
         setSupportActionBar(toolbar)
         signInButton.onClick {
-            presenter.checkUserName(username.text.toString())
+            presenter.checkUserName(user_name_et.text.toString())
                     .yes {
-                        presenter.checkPasswd(password.text.toString())
+                        presenter.checkPasswd(password_et.text.toString())
                                 .yes {
-                                    presenter.doLogin(username.text.toString(), password.text.toString())
+                                    presenter.doLogin(user_name_et.text.toString(), password_et.text.toString())
                                 }
                                 .otherwise {
-                                    showTips(password, "密码不合法")
+                                    showTips(password_et, "密码不合法")
                                 }
                     }
                     .otherwise {
-                        showTips(username, "用户名不合法")
+                        showTips(user_name_et, "用户名不合法")
                     }
         }
     }
@@ -49,6 +50,7 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginContract.View {
 
     override fun onLoginSuccess(){
         toast("登录成功")
+        jumpToActivity(MainActivity::class)
     }
 
     private fun showTips(view: EditText, tips: String){

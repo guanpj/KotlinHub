@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/feeds"
+        android:color="?android:attr/colorPrimary"
+        android:icon="@drawable/ic_github"
+        android:contentDescription="Feeds"
+        android:title="Feeds"/>
+
+    <item
+        android:id="@+id/pinned"
+        android:color="?android:attr/colorPrimary"
+        android:icon="@drawable/ic_issues"
+        android:title="Issues"
+        android:contentDescription="Issues"/>
+
+    <item
+        android:id="@+id/pullRequests"
+        android:color="?android:attr/colorPrimary"
+        android:icon="@drawable/ic_pull_requests"
+        android:contentDescription="Pull Requests"
+        android:title="Pull Requests"/>
+
+</menu>

@@ -42,8 +42,9 @@
 
     <style name="AppTheme.Dark" parent="Theme.AppCompat">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimary_dark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_dark</item>
+        <item name="colorAccent">@color/colorAccent_dark</item>
 
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
@@ -53,7 +54,6 @@
         <item name="android:textColorSecondaryInverse">@color/textColorSecondary</item>
         <item name="android:textColorTertiaryInverse">@color/textColorTertiary</item>
 
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:colorBackground">@color/colorBackgroundInverse</item>
         <item name="android:windowBackground">@color/windowBackgroundInverse</item>
 
@@ -137,6 +137,54 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="DividerLine">
+        <item name="android:background">@color/material_grey_700</item>
+    </style>
+
+    <style name="DividerLine.Horizontal" parent="DividerLine">
+        <item name="android:layout_height">@dimen/divider_width</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="DividerLine.Vertical" parent="DividerLine">
+        <item name="android:layout_width">@dimen/divider_width</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/transparent</item>
+        <!--<item name="android:windowLightStatusBar" tools:targetApi="m">true</item>-->
+        <item name="android:windowBackground">@drawable/splash_screen_drawable</item>
+        <!--<item name="icon_color">@color/white</item> &lt;!&ndash; to display the icons properly since this theme is the default &ndash;&gt;-->
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/text_normal</item>
+        <item name="android:textColor">?title_color</item>
+    </style>
+
+    <style name="Toolbar.Subtitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:textSize">@dimen/text_mini</item>
+        <item name="android:textColor">?subtitle_color</item>
+    </style>
+
+    <style name="Toolbar.Expand.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="text_link">
+        <item name="android:textColor">?android:colorAccent</item>
+    </style>
+
+    <style name="label_color">
+        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">?title_color</item>
+        <item name="android:textSize">@dimen/text_normal</item>
+        <item name="android:gravity">center</item>
     </style>
 
 </resources>

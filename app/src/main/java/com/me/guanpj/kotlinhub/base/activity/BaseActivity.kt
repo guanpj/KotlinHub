@@ -5,8 +5,9 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.me.guanpj.kotlinhub.core.AppStatus
 import com.me.guanpj.kotlinhub.core.AppStatusTracker
-import com.me.guanpj.kotlinhub.module.login.MainActivity
+import com.me.guanpj.kotlinhub.module.main.MainActivity
 import com.me.guanpj.kotlinhub.module.splash.SplashActivity
+import kotlin.reflect.KClass
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -39,12 +40,12 @@ abstract class BaseActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun jumpToActivity(target: Class<*>) {
+    fun jumpToActivity(target: KClass<*>) {
         jumpToActivity(target, null)
     }
 
-    fun jumpToActivity(target: Class<*>, data: Bundle?) {
-        startActivity(Intent(this, target).apply { if (null != data) putExtras(data) })
+    fun jumpToActivity(target: KClass<*>, data: Bundle?) {
+        startActivity(Intent(this, target.java).apply { if (null != data) putExtras(data) })
     }
 
     abstract fun getLayoutResId(): Int

@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="sideBarBackground" format="reference"/>
+
+    <attr name="icon_color" format="color|reference"/>
+    <attr name="card_background" format="color|reference"/>
+    <attr name="title_color" format="color|reference"/>
+    <attr name="subtitle_color" format="color|reference"/>
+    <attr name="selected_color" format="color|reference"/>
+    <attr name="appbar_theme" format="reference"/>
+    <attr name="popup_theme" format="reference"/>
+    <attr name="popup_menu_theme" format="reference"/>
+
     <declare-styleable name="DetailItemView">
         <attr name="item_title" format="string" />
         <attr name="item_content" format="string" />
@@ -14,5 +25,4 @@
         <attr name="originalTop" format="dimension"/>
     </declare-styleable>
 
-    <attr name="sideBarBackground" format="reference"/>
 </resources>

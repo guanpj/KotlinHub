@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ ~ Copied from Copyright (C) 2017 ThirtyDegreesRay.
+ ~ Modified by Copyright (C) 2017 guanpj.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <color name="dark_color_primary">#2D3035</color>
+    <color name="dark_color_primary_dark">#26282C</color>
+    <color name="dark_color_accent">@color/material_green_accent_700</color>
+    <color name="dark_window_background">#22252A</color>
+    <color name="dark_text_color_primary">@color/material_light_white</color>
+    <color name="dark_text_color_secondary">@color/material_grey_500</color>
+    <color name="dark_icon_color">@color/material_light_white</color>
+    <color name="dark_card_background">#2D3035</color>
+    <color name="dark_title_color">@color/material_light_white</color>
+    <color name="dark_subtitle_color">@color/material_grey_500</color>
+    <color name="dark_selected_color">#3f3f3f</color>
+
+    <style name="ThemeDark" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/dark_color_primary</item>
+        <item name="colorPrimaryDark">@color/dark_color_primary_dark</item>
+        <item name="colorAccent">@color/dark_color_accent</item>
+        <item name="android:windowBackground">@color/dark_window_background</item>
+        <item name="android:textColorPrimary">@color/dark_text_color_primary</item>
+        <item name="android:textColorSecondary">@color/dark_text_color_secondary</item>
+        <item name="android:textColorTertiary">@color/material_grey_200</item>
+        <item name="icon_color">@color/dark_icon_color</item>
+        <item name="card_background">@color/dark_card_background</item>
+        <item name="title_color">@color/dark_title_color</item>
+        <item name="subtitle_color">@color/dark_subtitle_color</item>
+        <item name="selected_color">@color/dark_selected_color</item>
+        <item name="popup_theme">@style/PopupThemeDark</item>
+        <item name="appbar_theme">@style/AppbarThemeDark</item>
+        <item name="android:contextPopupMenuStyle" tools:targetApi="n">@style/ContextPopupThemeDark</item>
+        <item name="popup_menu_theme">@style/PopupMenuDark</item>
+    </style>
+
+    <style name="DialogThemeDark" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="icon_color">@color/dark_icon_color</item>
+        <item name="colorPrimary">@color/dark_color_primary</item>
+        <item name="colorPrimaryDark">@color/dark_color_primary_dark</item>
+        <item name="colorAccent">@color/dark_color_accent</item>
+        <item name="android:windowBackground">@color/dark_window_background</item>
+    </style>
+
+    <style name="AppbarThemeDark" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+    </style>
+
+
+    <style name="PopupMenuDark" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@color/dark_window_background</item>
+    </style>
+
+    <style name="PopupThemeDark" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:colorBackground">@color/dark_window_background</item>
+    </style>
+
+    <style name="ContextPopupThemeDark" parent="PopupThemeDark">
+        <item name="android:popupBackground">@color/dark_window_background</item>
+        <!--
+         ~  Context menu of a RecyclerView is displayed in the wrong location when setting
+         ~  a contextPopupMenuStyle on Android N, set bellow can fix it.
+        -->
+        <item name="android:overlapAnchor">true</item>
+    </style>
+
+</resources>

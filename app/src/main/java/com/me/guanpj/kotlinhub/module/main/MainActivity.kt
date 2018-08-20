@@ -1,4 +1,4 @@
-package com.me.guanpj.kotlinhub.module.login
+package com.me.guanpj.kotlinhub.module.main
 
 import com.me.guanpj.kotlinhub.R
 import com.me.guanpj.kotlinhub.base.activity.BaseActivity
