@@ -1,42 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-
-    <color name="colorPrimary_dark">#24292E</color>
-    <color name="colorPrimaryDark_dark">#333333</color>
-    <color name="colorAccent_dark">#F0F0F0</color>
-
-    <color name="textColorPrimaryInverse">#24292E</color>
-    <color name="textColorSecondaryInverse">#333333</color>
-    <color name="textColorTertiaryInverse">#555555</color>
-
-    <color name="textColorPrimary">#FFFFFF</color>
-    <color name="textColorSecondary">#F0F0F0</color>
-    <color name="textColorTertiary">#AAAAAA</color>
-
-    <color name="textColorAccent">#FF0000</color>
-
-    <color name="colorAccentDark">#2332B5</color>
-    <color name="colorBackground">#F3F3F3</color>
-    <color name="windowBackground">#EEEEEE</color>
-
-    <!--<color name="colorPrimary">#24292E</color>
-    <color name="colorPrimaryDark">#333333</color>
-    <color name="colorAccent">#3F51B5</color>-->
-
-    <color name="colorBackgroundInverse">#333333</color>
-    <color name="windowBackgroundInverse">#333333</color>
-
-    <color name="google_red">#ea4235</color>
-    <color name="google_yellow">#fabc05</color>
-    <color name="google_green">#34a853</color>
-    <color name="google_blue">#4286f5</color>
 
     <color name="transparent">#00000000</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFF</color>
+    <color name="light_gray">#ffb2b2b2</color>
+    <color name="carrot">@color/material_amber_800</color>
     <color name="material_amber_100">#FFECB3</color>
     <color name="material_amber_200">#FFE082</color>
     <color name="material_amber_300">#FFD54F</color>
@@ -142,7 +111,6 @@
     <color name="material_green_accent_400">#00E676</color>
     <color name="material_green_accent_700">#00C853</color>
     <color name="material_grey_200">#EEEEEE</color>
-    <color name="material_grey_350">#D0D0D0</color>
     <color name="material_grey_400">#BDBDBD</color>
     <color name="material_grey_500">#9E9E9E</color>
     <color name="material_grey_700">#616161</color>
@@ -189,8 +157,7 @@
     <color name="material_light_green_accent_200">#B2FF59</color>
     <color name="material_light_green_accent_400">#76FF03</color>
     <color name="material_light_green_accent_700">#64DD17</color>
-    <color name="material_light_white">#EEEEEE</color>
-    <color name="material_white">#FFFFFF</color>
+    <color name="material_light_white">#eeeeee</color>
     <color name="material_lime_100">#F0F4C3</color>
     <color name="material_lime_200">#E6EE9C</color>
     <color name="material_lime_300">#DCE775</color>
@@ -289,5 +256,6 @@
     <color name="material_yellow_accent_200">#FFFF00</color>
     <color name="material_yellow_accent_400">#FFEA00</color>
     <color name="material_yellow_accent_700">#FFD600</color>
+    <color name="ic_app_shortcut_background">#F5F5F5</color>
 
 </resources>

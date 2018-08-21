@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/home_group">
+        <item
+            android:id="@+id/navToRepo"
+            android:icon="@drawable/ic_menu_repo"
+            android:title="@string/repo"
+            android:visible="false" />
+        <item
+            android:id="@+id/mainView"
+            android:icon="@drawable/ic_menu_home"
+            android:title="@string/home"
+            android:visible="true" />
+    </group>
+
+    <group android:id="@+id/profile_group">
+        <item
+            android:id="@+id/profile"
+            android:icon="@drawable/ic_menu_person"
+            android:title="@string/profile" />
+        <item
+            android:id="@+id/orgs"
+            android:icon="@drawable/ic_menu_group"
+            android:title="@string/organizations" />
+        <item
+            android:id="@+id/notifications"
+            android:icon="@drawable/ic_menu_notification"
+            android:title="@string/notifications" />
+    </group>
+
+    <group
+        android:id="@+id/group_one"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/pinnedMenu"
+            android:icon="@drawable/ic_menu_bookmark"
+            android:title="@string/pinned" />
+        <item
+            android:id="@+id/trending"
+            android:icon="@drawable/ic_menu_rending"
+            android:title="@string/trending" />
+        <item
+            android:id="@+id/gists"
+            android:icon="@drawable/ic_code"
+            android:title="@string/gists" />
+    </group>
+
+    <group
+        android:id="@+id/group_three"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_menu_settings"
+            android:title="@string/settings" />
+        <item
+            android:id="@+id/about"
+            android:icon="@drawable/ic_menu_about"
+            android:title="@string/about" />
+    </group>
+
+</menu>

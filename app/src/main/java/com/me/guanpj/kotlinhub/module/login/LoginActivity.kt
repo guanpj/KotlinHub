@@ -8,7 +8,6 @@ import com.me.guanpj.kotlinhub.ext.otherwise
 import com.me.guanpj.kotlinhub.ext.yes
 import com.me.guanpj.kotlinhub.module.main.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.app_bar_simple.*
 import org.jetbrains.anko.sdk15.listeners.onClick
 import org.jetbrains.anko.toast
 
@@ -18,7 +17,6 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setSupportActionBar(toolbar)
         signInButton.onClick {
             presenter.checkUserName(user_name_et.text.toString())
                     .yes {

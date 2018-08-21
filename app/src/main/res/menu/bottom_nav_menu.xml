@@ -5,21 +5,21 @@
     <item
         android:id="@+id/feeds"
         android:color="?android:attr/colorPrimary"
-        android:icon="@drawable/ic_github"
+        android:icon="@drawable/ic_bot_nav_github"
         android:contentDescription="Feeds"
         android:title="Feeds"/>
 
     <item
         android:id="@+id/pinned"
         android:color="?android:attr/colorPrimary"
-        android:icon="@drawable/ic_issues"
+        android:icon="@drawable/ic_bot_nav_issues"
         android:title="Issues"
         android:contentDescription="Issues"/>
 
     <item
         android:id="@+id/pullRequests"
         android:color="?android:attr/colorPrimary"
-        android:icon="@drawable/ic_pull_requests"
+        android:icon="@drawable/ic_bot_nav_pre"
         android:contentDescription="Pull Requests"
         android:title="Pull Requests"/>
 

@@ -1,70 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
- ~ Copied from Copyright (C) 2017 ThirtyDegreesRay.
+ ~ Copied from Copyright (C) 2017 Kosh.
  ~ Modified by Copyright (C) 2017 guanpj.
 -->
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <color name="light_color_primary">@color/material_indigo_500</color>
-    <color name="light_color_primary_dark">@color/material_indigo_700</color>
-    <color name="light_color_accent">#FF4081</color>
-    <color name="light_window_background">#F4F4F4</color>
-    <color name="light_text_color_primary">#212121</color>
-    <color name="light_text_color_secondary">#757575</color>
-    <color name="light_icon_color">@color/material_light_black</color>
-    <color name="light_card_background">@color/material_white</color>
-    <color name="light_title_color">@color/material_light_white</color>
-    <color name="light_subtitle_color">@color/material_grey_350</color>
-    <color name="light_selected_color">@color/material_grey_350</color>
+    <color name="light_primary">#3F51B5</color>
+    <color name="light_primary_dark">#303F9F</color>
+    <color name="light_accent">#FF4081</color>
+    <color name="light_window_background">#FAFAFA</color>
+    <color name="light_icon_color">#212121</color>
+    <color name="light_divider">#80949494</color>
+    <color name="light_patch_addition_color">#CCFFCC</color>
+    <color name="light_patch_deletion_color">#FFDDDD</color>
+    <color name="light_patch_ref_color">#EEEEEE</color>
 
-    <style name="ThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/light_color_primary</item>
-        <item name="colorPrimaryDark">@color/light_color_primary_dark</item>
-        <item name="colorAccent">@color/light_color_accent</item>
-        <item name="android:windowBackground">@color/light_window_background</item>
-        <item name="android:textColorPrimary">@color/light_text_color_primary</item>
-        <item name="android:textColorSecondary">@color/light_text_color_secondary</item>
-        <item name="android:textColorTertiary">@color/material_grey_700</item>
+    <style name="ThemeLight" parent="ThemeLight.Base"/>
+
+    <style name="ThemeLight.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/light_primary</item>
+        <item name="colorPrimaryDark">@color/light_primary_dark</item>
+        <item name="colorAccent">@color/light_accent</item>
+        <item name="card_background">@color/cardview_light_background</item>
         <item name="icon_color">@color/light_icon_color</item>
-        <item name="card_background">@color/light_card_background</item>
-        <item name="title_color">@color/light_title_color</item>
-        <item name="subtitle_color">@color/light_subtitle_color</item>
-        <item name="selected_color">@color/light_selected_color</item>
-        <item name="popup_theme">@style/PopupThemeLight</item>
-        <item name="appbar_theme">@style/AppbarThemeLight</item>
-        <item name="android:contextPopupMenuStyle" tools:targetApi="n">@style/ContextPopupThemeLight</item>
-        <item name="popup_menu_theme">@style/PopupMenuLight</item>
-    </style>
-
-    <style name="DialogThemeLight" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="icon_color">@color/light_icon_color</item>
-        <item name="colorPrimary">@color/light_color_primary</item>
-        <item name="colorPrimaryDark">@color/light_color_primary_dark</item>
-        <item name="colorAccent">@color/light_color_accent</item>
+        <item name="comment_box_style">@style/CommentBoxLight</item>
+        <item name="timeLine_background">@style/TimeLineBackgroundLight</item>
+        <item name="patch_addition">@color/light_patch_addition_color</item>
+        <item name="patch_deletion">@color/light_patch_deletion_color</item>
+        <item name="patch_ref">@color/light_patch_ref_color</item>
+        <item name="dividerColor">@color/light_divider</item>
         <item name="android:windowBackground">@color/light_window_background</item>
+        <item name="colorControlNormal">?android:colorAccent</item>
+        <item name="actionModeBackground">?android:colorPrimary</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:textColorPrimary">#212121</item>
+        <item name="android:textColorSecondary">#727272</item>
+        <item name="android:textColorTertiary">#686868</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="android:colorEdgeEffect">?android:colorPrimary</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:dialogTheme">@style/DialogThemeLight</item>
+        <item name="android:alertDialogTheme">@style/DialogThemeLight</item>
+        <item name="android:toolbarStyle">@style/ToolbarStyleLight</item>
     </style>
 
-    <style name="AppbarThemeLight" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-
-    </style>
-
-    <style name="PopupMenuLight" parent="Widget.AppCompat.Light.PopupMenu">
-        <item name="android:popupBackground">@color/light_window_background</item>
+    <style name="ToolbarStyleLight">
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="colorControlNormal">@color/black</item>
+        <item name="colorControlHighlight">#42000000</item>
+        <item name="popupTheme">@style/PopupThemeLight</item>
     </style>
 
     <style name="PopupThemeLight" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:colorBackground">@color/light_window_background</item>
     </style>
 
-    <style name="ContextPopupThemeLight" parent="PopupThemeLight">
-        <item name="android:popupBackground">@color/light_window_background</item>
-        <!--
-         ~  Context menu of a RecyclerView is displayed in the wrong location when setting
-         ~  a contextPopupMenuStyle on Android N, set bellow can fix it.
-        -->
-        <item name="android:overlapAnchor">true</item>
+    <style name="TimeLineBackgroundLight">
+        <item name="android:background">@drawable/ic_timeline_arrow_left</item>
     </style>
-    
+
+    <style name="CommentBoxLight">
+        <item name="android:background">@drawable/ic_edittext</item>
+    </style>
+
+    <style name="DialogThemeLight" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:toolbarStyle">@style/ToolbarStyleLight</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="card_background">@color/cardview_light_background</item>
+        <item name="icon_color">@color/light_icon_color</item>
+        <item name="comment_box_style">@style/CommentBoxLight</item>
+        <item name="timeLine_background">@style/TimeLineBackgroundLight</item>
+        <item name="patch_addition">@color/light_patch_addition_color</item>
+        <item name="patch_deletion">@color/light_patch_deletion_color</item>
+        <item name="patch_ref">@color/light_patch_ref_color</item>
+        <item name="dividerColor">@color/light_divider</item>
+        <item name="android:windowBackground">@color/light_window_background</item>
+        <item name="colorPrimary">@color/light_primary</item>
+        <item name="colorPrimaryDark">@color/light_primary_dark</item>
+        <item name="colorAccent">@color/light_accent</item>
+    </style>
+
 </resources>

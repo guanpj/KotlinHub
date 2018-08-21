@@ -1,70 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
- ~ Copied from Copyright (C) 2017 ThirtyDegreesRay.
+ ~ Copied from Copyright (C) 2017 Kosh.
  ~ Modified by Copyright (C) 2017 guanpj.
 -->
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <color name="dark_color_primary">#2D3035</color>
-    <color name="dark_color_primary_dark">#26282C</color>
-    <color name="dark_color_accent">@color/material_green_accent_700</color>
+    <color name="dark_primary">#2D3035</color>
+    <color name="dark_primary_dark">#26282C</color>
+    <color name="dark_accent">#2196F3</color>
     <color name="dark_window_background">#22252A</color>
-    <color name="dark_text_color_primary">@color/material_light_white</color>
-    <color name="dark_text_color_secondary">@color/material_grey_500</color>
-    <color name="dark_icon_color">@color/material_light_white</color>
-    <color name="dark_card_background">#2D3035</color>
-    <color name="dark_title_color">@color/material_light_white</color>
-    <color name="dark_subtitle_color">@color/material_grey_500</color>
-    <color name="dark_selected_color">#3f3f3f</color>
+    <color name="dark_icon_color">#eeeeee</color>
+    <color name="dark_divider">#10FFFFFF</color>
+    <color name="dark_patch_addition_color">@color/material_green_900</color>
+    <color name="dark_patch_deletion_color">@color/material_red_900</color>
+    <color name="dark_patch_ref_color">@color/material_blue_grey_500</color>
 
-    <style name="ThemeDark" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/dark_color_primary</item>
-        <item name="colorPrimaryDark">@color/dark_color_primary_dark</item>
-        <item name="colorAccent">@color/dark_color_accent</item>
-        <item name="android:windowBackground">@color/dark_window_background</item>
-        <item name="android:textColorPrimary">@color/dark_text_color_primary</item>
-        <item name="android:textColorSecondary">@color/dark_text_color_secondary</item>
-        <item name="android:textColorTertiary">@color/material_grey_200</item>
+    <style name="ThemeDark" parent="ThemeDark.Base"/>
+
+    <style name="ThemeDark.Base" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/dark_primary</item>
+        <item name="colorPrimaryDark">@color/dark_primary_dark</item>
+        <item name="colorAccent">@color/dark_accent</item>
+        <item name="card_background">@color/cardview_dark_background</item>
         <item name="icon_color">@color/dark_icon_color</item>
-        <item name="card_background">@color/dark_card_background</item>
-        <item name="title_color">@color/dark_title_color</item>
-        <item name="subtitle_color">@color/dark_subtitle_color</item>
-        <item name="selected_color">@color/dark_selected_color</item>
-        <item name="popup_theme">@style/PopupThemeDark</item>
-        <item name="appbar_theme">@style/AppbarThemeDark</item>
-        <item name="android:contextPopupMenuStyle" tools:targetApi="n">@style/ContextPopupThemeDark</item>
-        <item name="popup_menu_theme">@style/PopupMenuDark</item>
-    </style>
-
-    <style name="DialogThemeDark" parent="Theme.AppCompat.Dialog.Alert">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="icon_color">@color/dark_icon_color</item>
-        <item name="colorPrimary">@color/dark_color_primary</item>
-        <item name="colorPrimaryDark">@color/dark_color_primary_dark</item>
-        <item name="colorAccent">@color/dark_color_accent</item>
+        <item name="comment_box_style">@style/CommentBoxDark</item>
+        <item name="timeLine_background">@style/TimeLineBackgroundDark</item>
+        <item name="patch_addition">@color/dark_patch_addition_color</item>
+        <item name="patch_deletion">@color/dark_patch_deletion_color</item>
+        <item name="patch_ref">@color/dark_patch_ref_color</item>
+        <item name="dividerColor">@color/dark_divider</item>
         <item name="android:windowBackground">@color/dark_window_background</item>
+        <item name="colorControlNormal">?android:colorAccent</item>
+        <item name="actionModeBackground">?android:colorPrimary</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+        <item name="android:textColorPrimary">#eee</item>
+        <item name="android:textColorSecondary">#9E9E9E</item>
+        <item name="android:textColorTertiary">#ffe0e0e0</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="android:colorEdgeEffect">?android:colorPrimary</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:dialogTheme">@style/DialogThemeDark</item>
+        <item name="android:alertDialogTheme">@style/DialogThemeDark</item>
+        <item name="android:toolbarStyle">@style/ToolbarStyleDark</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:popupMenuStyle">@style/PopupMenuDark</item>
+        <item name="android:spinnerDropDownItemStyle">@style/PopupMenuDark</item>
     </style>
-
-    <style name="AppbarThemeDark" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-    </style>
-
 
     <style name="PopupMenuDark" parent="Widget.AppCompat.PopupMenu">
         <item name="android:popupBackground">@color/dark_window_background</item>
     </style>
 
-    <style name="PopupThemeDark" parent="ThemeOverlay.AppCompat.Dark">
+    <style name="ToolbarStyleDark">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlHighlight">#42ffffff</item>
+        <item name="popupTheme">@style/PopupThemeDark</item>
+    </style>
+
+    <style name="PopupThemeDark" parent="ThemeOverlay.AppCompat">
         <item name="android:colorBackground">@color/dark_window_background</item>
     </style>
 
-    <style name="ContextPopupThemeDark" parent="PopupThemeDark">
-        <item name="android:popupBackground">@color/dark_window_background</item>
-        <!--
-         ~  Context menu of a RecyclerView is displayed in the wrong location when setting
-         ~  a contextPopupMenuStyle on Android N, set bellow can fix it.
-        -->
-        <item name="android:overlapAnchor">true</item>
+    <style name="TimeLineBackgroundDark">
+        <item name="android:background">@drawable/ic_timeline_arrow_left</item>
+        <item name="android:backgroundTint">#2D3035</item>
+    </style>
+
+    <style name="CommentBoxDark">
+        <item name="android:background">@drawable/ic_edittext</item>
+        <item name="android:backgroundTint">#2D3035</item>
+    </style>
+
+    <style name="DialogThemeDark" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="colorPrimary">@color/dark_primary</item>
+        <item name="colorPrimaryDark">@color/dark_primary_dark</item>
+        <item name="colorAccent">@color/dark_accent</item>
+        <item name="android:toolbarStyle">@style/ToolbarStyleDark</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="card_background">@color/cardview_dark_background</item>
+        <item name="icon_color">@color/dark_icon_color</item>
+        <item name="comment_box_style">@style/CommentBoxDark</item>
+        <item name="timeLine_background">@style/TimeLineBackgroundDark</item>
+        <item name="android:windowBackground">@color/dark_window_background</item>
     </style>
 
 </resources>

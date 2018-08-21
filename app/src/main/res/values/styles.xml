@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <!--<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -8,183 +8,51 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>-->
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-
-        <item name="android:textColorPrimary">@color/textColorPrimary</item>
-        <item name="android:textColorSecondary">@color/textColorSecondary</item>
-        <item name="android:textColorTertiary">@color/textColorTertiary</item>
-
-        <item name="android:textColorPrimaryInverse">@color/textColorPrimaryInverse</item>
-        <item name="android:textColorSecondaryInverse">@color/textColorSecondaryInverse</item>
-        <item name="android:textColorTertiaryInverse">@color/textColorTertiaryInverse</item>
-
-        <item name="android:colorBackground">@color/colorBackground</item>
-        <item name="android:windowBackground">@color/windowBackground</item>
-
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-
-        <item name="sideBarBackground">@drawable/side_nav_bar</item>
-        <item name="android:alertDialogTheme">@style/AlertDialogTheme</item>
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
     </style>
 
-    <style name="AppTheme.Translucent">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowIsTranslucent">true</item>
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="behavior_peekHeight">220dp</item>
     </style>
 
-    <style name="AppTheme.Dark" parent="Theme.AppCompat">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary_dark</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark_dark</item>
-        <item name="colorAccent">@color/colorAccent_dark</item>
-
-        <item name="android:textColorPrimary">@color/textColorPrimary</item>
-        <item name="android:textColorSecondary">@color/textColorSecondary</item>
-        <item name="android:textColorTertiary">@color/textColorTertiary</item>
-
-        <item name="android:textColorPrimaryInverse">@color/textColorPrimary</item>
-        <item name="android:textColorSecondaryInverse">@color/textColorSecondary</item>
-        <item name="android:textColorTertiaryInverse">@color/textColorTertiary</item>
-
-        <item name="android:colorBackground">@color/colorBackgroundInverse</item>
-        <item name="android:windowBackground">@color/windowBackgroundInverse</item>
-
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-
-        <item name="sideBarBackground">@drawable/side_nav_bar_night</item>
-        <item name="android:alertDialogTheme">@style/AlertDialogTheme.Dark</item>
+    <style name="LoginTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/material_indigo_700</item>
+        <item name="colorPrimaryDark">@color/material_indigo_900</item>
+        <item name="colorAccent">@color/material_blue_accent_700</item>
+        <item name="colorControlNormal">?android:colorAccent</item>
+        <item name="icon_color">@color/white</item>
+        <item name="card_background">@color/material_light_white</item>
     </style>
 
-    <style name="AppTheme.Dark.Translucent">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowIsTranslucent">true</item>
-    </style>
-
-    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert"/>
-
-    <style name="AlertDialogTheme.Dark">
-        <item name="android:textColorPrimary">@color/textColorPrimary</item>
-        <item name="android:textColorSecondary">@color/textColorSecondary</item>
-        <item name="android:textColorTertiary">@color/textColorTertiary</item>
-        <item name="android:windowBackground">@color/colorBackgroundInverse</item>
-    </style>
-
-    <style name="list_item_title">
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_margin">3dp</item>
-        <item name="android:layout_gravity">center_vertical</item>
-    </style>
-
-    <style name="list_item_subtitle">
-        <item name="android:textStyle">normal</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_margin">3dp</item>
-        <item name="android:layout_gravity">center_vertical</item>
-    </style>
-
-    <style name="repo_tag_icon">
-        <item name="android:layout_height">12dp</item>
-        <item name="android:layout_width">12dp</item>
-        <item name="android:layout_margin">3dp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_gravity">center_vertical</item>
-        <item name="android:scaleType">fitXY</item>
-        <item name="android:tint">?android:textColorSecondaryInverse</item>
-    </style>
-
-    <style name="list_item_avatar">
-        <item name="android:layout_height">50dp</item>
-        <item name="android:layout_width">50dp</item>
-        <item name="android:layout_marginTop">15dp</item>
-        <item name="android:layout_marginLeft">10dp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_gravity">center_vertical</item>
-        <item name="android:scaleType">fitXY</item>
-    </style>
-
-    <style name="detail_title">
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">24sp</item>
-        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:padding">10dp</item>
-        <item name="android:layout_gravity">center_vertical</item>
-    </style>
-
-    <style name="detail_description">
-        <item name="android:textStyle">normal</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_gravity">center_vertical</item>
-    </style>
-
-    <style name="DividerLine">
-        <item name="android:background">@color/material_grey_700</item>
-    </style>
-
-    <style name="DividerLine.Horizontal" parent="DividerLine">
-        <item name="android:layout_height">@dimen/divider_width</item>
-        <item name="android:layout_width">match_parent</item>
-    </style>
-
-    <style name="DividerLine.Vertical" parent="DividerLine">
-        <item name="android:layout_width">@dimen/divider_width</item>
-        <item name="android:layout_height">match_parent</item>
+    <style name="InfoTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/material_blue_accent_700</item>
+        <item name="colorPrimaryDark">@color/material_indigo_900</item>
+        <item name="colorAccent">@color/material_blue_accent_700</item>
+        <item name="colorControlNormal">?android:colorAccent</item>
+        <item name="icon_color">@color/white</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:statusBarColor">@color/transparent</item>
-        <!--<item name="android:windowLightStatusBar" tools:targetApi="m">true</item>-->
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <item name="android:windowBackground">@drawable/splash_screen_drawable</item>
-        <!--<item name="icon_color">@color/white</item> &lt;!&ndash; to display the icons properly since this theme is the default &ndash;&gt;-->
+        <item name="icon_color">@color/dark_window_background</item> <!-- to display the icons properly since this theme is the default -->
+
     </style>
 
-    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">@dimen/text_normal</item>
-        <item name="android:textColor">?title_color</item>
+    <style name="ThemeTranslucent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:navigationBarColor">@color/transparent</item>
     </style>
 
-    <style name="Toolbar.Subtitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
-        <item name="android:textSize">@dimen/text_mini</item>
-        <item name="android:textColor">?subtitle_color</item>
-    </style>
-
-    <style name="Toolbar.Expand.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">22sp</item>
-    </style>
-
-    <style name="text_link">
-        <item name="android:textColor">?android:colorAccent</item>
-    </style>
-
-    <style name="label_color">
-        <item name="android:layout_height">36dp</item>
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:textColor">?title_color</item>
-        <item name="android:textSize">@dimen/text_normal</item>
-        <item name="android:gravity">center</item>
+    <style name="TextAppearance.Design.CollapsingToolbar.Expanded.LightText" parent="TextAppearance.Design.CollapsingToolbar.Expanded">
+        <item name="android:textColor">@color/white</item>
     </style>
 
 </resources>

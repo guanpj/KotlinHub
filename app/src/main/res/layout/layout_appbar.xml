@@ -5,25 +5,15 @@
     android:id="@+id/app_bar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:theme="?appbar_theme">
+    android:theme="?android:toolbarStyle">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:background="?android:attr/colorPrimary"
-        app:popupTheme="?popup_theme">
+        app:popupTheme="?android:toolbarStyle">
 
     </android.support.v7.widget.Toolbar>
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:tabGravity="fill"
-        app:tabMode="fixed"
-        app:tabTextAppearance="@style/TextAppearance.Design.Tab"
-        app:tabSelectedTextColor="?title_color"/>
 
 </android.support.design.widget.AppBarLayout>

@@ -20,4 +20,15 @@
     <string name="click_to_login">Click to Login</string>
 
     <string name="repo_description_template">[%1$s](%2$s)/[%3$s](%4$s) \n\n Created by [%5$s](%6$s) on %7$s</string>
+    <string name="settings">设置</string>
+    <string name="about">关于</string>
+    <string name="profile">我的</string>
+    <string name="news">动态</string>
+    <string name="organizations">组织</string>
+    <string name="notifications">通知</string>
+    <string name="pinned">书签</string>
+    <string name="trending">趋势</string>
+    <string name="gists">Gists</string>
+    <string name="home">主页</string>
+    <string name="repo">仓库</string>
 </resources>
