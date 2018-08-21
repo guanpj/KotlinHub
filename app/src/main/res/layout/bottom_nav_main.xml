@@ -1,10 +1,10 @@
 <android.support.design.widget.BottomNavigationView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/bottomNavigation"
+    android:id="@+id/bnv_main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
-    app:itemIconTint="?android:attr/colorPrimary"
-    app:itemTextColor="?android:attr/colorAccent"
+    app:itemIconTint="@color/bottom_nav_item_color"
+    app:itemTextColor="@color/bottom_nav_item_color"
     app:menu="@menu/bottom_nav_menu" />

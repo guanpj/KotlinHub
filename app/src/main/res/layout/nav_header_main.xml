@@ -4,9 +4,9 @@
     android:id="@+id/navigationHeader"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
-    android:background="@drawable/side_nav_bar"
+    android:background="@drawable/bg_main_nav_bar_header"
     android:gravity="bottom"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:paddingBottom="@dimen/layout_margin"
     android:paddingLeft="@dimen/layout_margin"
     android:paddingRight="@dimen/layout_margin"
@@ -18,19 +18,28 @@
         android:layout_height="50dp"
         app:srcCompat="@drawable/ic_bot_nav_github" />
 
-    <TextView
-        android:id="@+id/usernameView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="@string/click_to_login"
-        android:textColor="@color/white" />
+    <LinearLayout
+        android:layout_marginLeft="15dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="1">
 
-    <TextView
-        android:id="@+id/emailView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="409026844"
-        android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/usernameView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/click_to_login"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/emailView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="409026844"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
 
 </LinearLayout>
