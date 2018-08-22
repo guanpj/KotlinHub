@@ -2,18 +2,19 @@ package com.me.guanpj.kotlinhub.base.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import com.me.guanpj.kotlinhub.core.AppStatus
 import com.me.guanpj.kotlinhub.core.AppStatusTracker
 import com.me.guanpj.kotlinhub.module.main.MainActivity
 import com.me.guanpj.kotlinhub.module.splash.SplashActivity
+import me.yokeyword.fragmentation_swipeback.SwipeBackActivity
 import kotlin.reflect.KClass
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : SwipeBackActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutResId())
+        setSwipeBackEnable(false)
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {

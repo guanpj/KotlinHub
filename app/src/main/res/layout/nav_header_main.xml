@@ -7,16 +7,13 @@
     android:background="@drawable/bg_main_nav_bar_header"
     android:gravity="bottom"
     android:orientation="horizontal"
-    android:paddingBottom="@dimen/layout_margin"
-    android:paddingLeft="@dimen/layout_margin"
-    android:paddingRight="@dimen/layout_margin"
-    android:paddingTop="@dimen/layout_margin">
+    android:padding="@dimen/layout_margin">
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/avatarView"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/ic_bot_nav_github" />
+        app:srcCompat="@drawable/ic_menu_bottom_github" />
 
     <LinearLayout
         android:layout_marginLeft="15dp"

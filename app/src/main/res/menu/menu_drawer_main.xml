@@ -4,12 +4,12 @@
     <group android:id="@+id/home_group">
         <item
             android:id="@+id/navToRepo"
-            android:icon="@drawable/ic_menu_repo"
+            android:icon="@drawable/ic_menu_drawer_repo"
             android:title="@string/repo"
             android:visible="false" />
         <item
             android:id="@+id/mainView"
-            android:icon="@drawable/ic_menu_home"
+            android:icon="@drawable/ic_menu_drawer_home"
             android:title="@string/home"
             android:visible="true" />
     </group>
@@ -17,15 +17,15 @@
     <group android:id="@+id/profile_group">
         <item
             android:id="@+id/profile"
-            android:icon="@drawable/ic_menu_person"
+            android:icon="@drawable/ic_menu_drawer_person"
             android:title="@string/profile" />
         <item
             android:id="@+id/orgs"
-            android:icon="@drawable/ic_menu_group"
+            android:icon="@drawable/ic_menu_drawer_group"
             android:title="@string/organizations" />
         <item
             android:id="@+id/notifications"
-            android:icon="@drawable/ic_menu_notification"
+            android:icon="@drawable/ic_menu_drawer_notification"
             android:title="@string/notifications" />
     </group>
 
@@ -34,11 +34,11 @@
         android:checkableBehavior="none">
         <item
             android:id="@+id/pinnedMenu"
-            android:icon="@drawable/ic_menu_bookmark"
+            android:icon="@drawable/ic_menu_drawer_bookmark"
             android:title="@string/pinned" />
         <item
             android:id="@+id/trending"
-            android:icon="@drawable/ic_menu_rending"
+            android:icon="@drawable/ic_menu_drawer_rending"
             android:title="@string/trending" />
         <item
             android:id="@+id/gists"
@@ -51,11 +51,11 @@
         android:checkableBehavior="none">
         <item
             android:id="@+id/settings"
-            android:icon="@drawable/ic_menu_settings"
+            android:icon="@drawable/ic_menu_drawer_settings"
             android:title="@string/settings" />
         <item
             android:id="@+id/about"
-            android:icon="@drawable/ic_menu_about"
+            android:icon="@drawable/ic_menu_drawer_about"
             android:title="@string/about" />
     </group>
 

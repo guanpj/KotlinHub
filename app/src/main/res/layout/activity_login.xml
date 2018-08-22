@@ -26,12 +26,12 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <ImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:padding="@dimen/spacing_normal"
-                android:src="@mipmap/ic_launcher"
-                android:background="?android:colorAccent"/>
+                android:background="?android:colorAccent"
+                app:srcCompat="@mipmap/login_logo"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,7 +63,7 @@
                     android:id="@+id/password_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_x_large"
+                    android:layout_marginTop="@dimen/spacing_xs_large"
                     android:hint="密码"
                     app:passwordToggleEnabled="true"
                     app:passwordToggleTint="?android:colorAccent">
@@ -79,31 +79,14 @@
 
                 </android.support.design.widget.TextInputLayout>
 
-                <Button
+                <android.support.v7.widget.AppCompatButton
                     android:id="@+id/signInButton"
-                    style="?android:textAppearanceSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/action_sign_in"
                     android:textColor="?android:textColorPrimaryInverse"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="使用您的默认浏览器登录(OAuth)"/>
-
-                <Button
-                    android:id="@+id/oauth_login_bn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:paddingLeft="@dimen/spacing_small"
-                    android:paddingRight="@dimen/spacing_small"
-                    android:layout_margin="@dimen/spacing_normal"
-                    android:background="?android:attr/selectableItemBackground"
-                    android:text="浏览器中打开"
-                    android:textColor="?android:colorAccent"/>
 
             </LinearLayout>
 

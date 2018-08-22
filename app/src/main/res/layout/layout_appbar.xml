@@ -12,7 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:background="?android:attr/colorPrimary"
-        app:popupTheme="?android:toolbarStyle">
+        app:title="@string/app_name"
+        app:navigationIcon="@drawable/ic_menu"
+        app:titleTextColor="?icon_color"
+        app:popupTheme="?android:toolbarStyle"
+        app:layout_behavior="@string/bye_burger_title_behavior">
 
     </android.support.v7.widget.Toolbar>
 
