@@ -10,7 +10,7 @@
         android:title="Feeds"/>
 
     <item
-        android:id="@+id/pinned"
+        android:id="@+id/issues"
         android:color="?android:attr/colorPrimary"
         android:icon="@drawable/ic_menu_bottom_issues"
         android:title="Issues"

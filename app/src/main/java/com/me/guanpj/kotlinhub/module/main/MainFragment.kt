@@ -1,7 +1,6 @@
 package com.me.guanpj.kotlinhub.module.main
 
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
 import com.me.guanpj.kotlinhub.R
 import com.me.guanpj.kotlinhub.base.fragment.BaseFragment
 import com.me.guanpj.kotlinhub.module.feeds.FeedsFragment
@@ -18,6 +17,7 @@ class MainFragment : BaseFragment() {
     val THIRD = 2
 
     var mFragments = arrayOfNulls<SupportFragment>(3)
+    var mCurrentFragmentIndex = 0
 
     companion object {
         fun newInstance(): MainFragment {
@@ -48,10 +48,28 @@ class MainFragment : BaseFragment() {
             mFragments[SECOND] = findChildFragment(IssuesFragment::class.java)
             mFragments[THIRD] = findChildFragment(PullRequestsFragment::class.java)
         }
-
-        bnv_main.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener {
-                it.itemId
-        })
+        bnv_main.setOnNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.feeds -> {
+                    showHideFragment(mFragments[FIRST], mFragments[mCurrentFragmentIndex])
+                    mCurrentFragmentIndex = FIRST
+                    true
+                }
+                R.id.issues -> {
+                    showHideFragment(mFragments[SECOND], mFragments[mCurrentFragmentIndex])
+                    mCurrentFragmentIndex = SECOND
+                    true
+                }
+                R.id.pullRequests -> {
+                    showHideFragment(mFragments[THIRD], mFragments[mCurrentFragmentIndex])
+                    mCurrentFragmentIndex = THIRD
+                    true
+                }
+                else -> {
+                    true
+                }
+            }
+        }
     }
 
     override fun initDataAndEvent() {
