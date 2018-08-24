@@ -1,18 +1,11 @@
-package com.me.guanpj.kotlinhub.module.feeds
+package com.me.guanpj.kotlinhub.module.list
 
 import com.me.guanpj.kotlinhub.base.BasePresenter
-import com.me.guanpj.kotlinhub.data.remote.api.UserApi
-import com.me.guanpj.kotlinhub.entity.Event
+import com.me.guanpj.kotlinhub.widget.ListPage
 import javax.inject.Inject
 
-class FeedsPresenter @Inject constructor() : BasePresenter<FeedsContract.View<Event>>(), FeedsContract.Presenter<Event> {
-
-    @Inject
-    lateinit var userApi: UserApi
-
-    private val listPage by lazy {
-        FeedsPage(userApi)
-    }
+class CommonListPresenter<D, out V : CommonListFragment<D, CommonListPresenter<D, V>>> @Inject constructor() : BasePresenter<V>() {
+    lateinit var listPage: ListPage<D>
 
     fun initData() {
         listPage.loadFromFirst()
@@ -37,4 +30,5 @@ class FeedsPresenter @Inject constructor() : BasePresenter<FeedsContract.View<Ev
                         { view.onMoreDataLoadedWithError(it.message ?: it.toString()) }
                 ).let(disposableList::add)
     }
+
 }

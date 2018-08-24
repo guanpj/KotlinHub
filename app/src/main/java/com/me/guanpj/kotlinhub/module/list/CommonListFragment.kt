@@ -1,12 +1,10 @@
-package com.me.guanpj.kotlinhub.module.feeds
+package com.me.guanpj.kotlinhub.module.list
 
-import android.os.Bundle
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.me.guanpj.kotlinhub.R
 import com.me.guanpj.kotlinhub.base.fragment.BaseMvpFragment
-import com.me.guanpj.kotlinhub.entity.Event
 import com.me.guanpj.kotlinhub.widget.view.CustomLoadMoreView
 import kotlinx.android.synthetic.main.fragment_common_list.*
 import org.jetbrains.anko.sdk15.listeners.onClick
@@ -14,20 +12,11 @@ import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.support.v4.toast
 import retrofit2.adapter.rxjava2.GitHubPaging
 
-class FeedsFragment : BaseMvpFragment<FeedsPresenter>(), FeedsContract.View<Event> {
+class CommonListFragment<D, out P : CommonListPresenter<D, CommonListFragment<D, P>>> : BaseMvpFragment<P>() {
 
-    val adapter by lazy {
-        FeedsAdapter()
-    }
+    lateinit var adapter: CommonListAdapter<D>
 
-    companion object {
-        fun newInstance(): FeedsFragment {
-            val args = Bundle()
-            val fragment = FeedsFragment()
-            fragment.arguments = args
-            return fragment
-        }
-    }
+    override fun getLayoutResId(): Int = R.layout.fragment_common_list
 
     override fun initView(view: View) {
         refreshView.setColorSchemeResources(R.color.material_red_700, R.color.material_yellow_700,
@@ -48,35 +37,37 @@ class FeedsFragment : BaseMvpFragment<FeedsPresenter>(), FeedsContract.View<Even
         presenter.initData()
     }
 
-    override fun getLayoutResId(): Int = R.layout.fragment_feeds
+    fun setLoadMoreEnable(isEnabled: Boolean) {
+        adapter.setEnableLoadMore(isEnabled)
+    }
 
-    override fun onDataInit(data: GitHubPaging<Event>){
+    fun onDataInit(data: GitHubPaging<D>) {
         adapter.addData(data)
         if (data.isLast) adapter.loadMoreEnd()
         refreshView.isRefreshing = false
         dismissError()
     }
 
-    override fun onDataRefresh(data: GitHubPaging<Event>){
+    fun onDataRefresh(data: GitHubPaging<D>) {
         onDataInit(data)
     }
 
-    override fun onDataInitWithNothing(){
+    fun onDataInitWithNothing() {
         showError("No Data.")
         adapter.loadMoreEnd()
         refreshView.isRefreshing = false
         statusView.isClickable = false
     }
 
-    override fun onDataInitWithError(error: String){
+    fun onDataInitWithError(error: String) {
         showError(error)
         statusView.onClick {
             presenter.initData()
         }
     }
 
-    override fun onDataRefreshWithError(error: String){
-        if (adapter.data.isEmpty()){
+    fun onDataRefreshWithError(error: String) {
+        if (adapter.data.isEmpty()) {
             showError(error)
             statusView.onClick {
                 presenter.initData()
@@ -86,13 +77,13 @@ class FeedsFragment : BaseMvpFragment<FeedsPresenter>(), FeedsContract.View<Even
         }
     }
 
-    override fun onMoreDataLoaded(data: GitHubPaging<Event>){
+    fun onMoreDataLoaded(data: GitHubPaging<D>) {
         adapter.replaceData(data)
         if (data.isLast) adapter.loadMoreEnd()
         dismissError()
     }
 
-    override fun onMoreDataLoadedWithError(error: String){
+    fun onMoreDataLoadedWithError(error: String) {
         showError(error)
         statusView.onClick {
             presenter.initData()

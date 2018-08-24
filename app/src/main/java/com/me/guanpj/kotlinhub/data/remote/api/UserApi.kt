@@ -7,7 +7,6 @@ import retrofit2.adapter.rxjava2.GitHubPaging
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
-import java.util.*
 
 interface UserApi {
     @GET("/user")
@@ -23,5 +22,5 @@ interface UserApi {
     fun followers(@Path("login") login: String, @Query("page") page: Int = 1): Observable<GitHubPaging<User>>
 
     @GET("users/{user}/events")
-    fun getUserEvents(@Path("user") user: String, @Query("page") page: Int): Observable<ArrayList<Event>>
+    fun getUserEvents(@Path("user") user: String, @Query("page") page: Int): Observable<GitHubPaging<Event>>
 }

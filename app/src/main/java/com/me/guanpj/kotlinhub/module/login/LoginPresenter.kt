@@ -25,9 +25,9 @@ class LoginPresenter @Inject constructor() : BasePresenter<LoginContract.View>()
         return true
     }
 
-    fun doLogin(name: String, passwd: String) {
+    fun doLogin(name: String, psw: String) {
         AccountManager.username = name
-        AccountManager.passwd = passwd
+        AccountManager.passwd = psw
         authApi.createAuthorization(AuthorizationReq())
                 .doOnNext {
                     if (it.token.isEmpty()) throw AccountException(it)

@@ -1,6 +1,7 @@
 package com.me.guanpj.kotlinhub.module.main
 
 import android.os.Bundle
+import android.view.View
 import com.me.guanpj.kotlinhub.R
 import com.me.guanpj.kotlinhub.base.fragment.BaseFragment
 import com.me.guanpj.kotlinhub.module.feeds.FeedsFragment
@@ -30,7 +31,7 @@ class MainFragment : BaseFragment() {
 
     override fun getLayoutResId(): Int = R.layout.fragment_main
 
-    override fun initView() {
+    override fun initView(view: View) {
         toolbar.inflateMenu(R.menu.menu_main)
 
         val firstFragment = findChildFragment(IssuesFragment::class.java)

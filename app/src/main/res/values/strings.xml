@@ -32,4 +32,13 @@
     <string name="home">主页</string>
     <string name="repo">仓库</string>
     <string name="search">搜索</string>
+    <string name="brvah_loading">正在加载...</string>
+    <string name="brvah_load_failed">Sorry，数据加载出错</string>
+    <string name="brvah_load_end">没有更多数据</string>
+    <string name="brvah_empty">暂无数据，点击重试</string>
+    <string name="just_now">just now</string>
+    <string name="seconds_ago">seconds ago</string>
+    <string name="minutes_ago">minutes ago</string>
+    <string name="hours_ago">hours ago</string>
+    <string name="days_ago">days ago</string>
 </resources>

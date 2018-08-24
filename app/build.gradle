@@ -111,9 +111,11 @@ dependencies {
     implementation 'me.yokeyword:fragmentation-swipeback:1.3.3'
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
-    implementation 'com.takwolf.android:hf-recyclerview:0.3.2'
     implementation 'org.slf4j:slf4j-api:1.7.21'
     //implementation 'cn.carbs.android:AvatarImageView:1.0.4'
     implementation 'com.github.githubwing:ByeBurger:1.2.3'
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.3.1'
+    kapt 'com.github.bumptech.glide:compiler:4.3.1'
     implementation 'com.android.support:multidex:1.0.3'
 }

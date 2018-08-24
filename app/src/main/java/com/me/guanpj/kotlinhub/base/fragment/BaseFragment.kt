@@ -20,7 +20,7 @@ abstract class BaseFragment : SwipeBackFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setSwipeBackEnable(false)
-        initView()
+        initView(view)
         initDataAndEvent()
     }
 
@@ -34,7 +34,7 @@ abstract class BaseFragment : SwipeBackFragment() {
 
     abstract fun getLayoutResId(): Int
 
-    abstract fun initView()
+    abstract fun initView(view: View)
 
     abstract fun initDataAndEvent()
 }

@@ -1,6 +1,7 @@
 package com.me.guanpj.kotlinhub.module.pull_requests
 
 import android.os.Bundle
+import android.view.View
 import com.me.guanpj.kotlinhub.R
 import com.me.guanpj.kotlinhub.base.fragment.BaseFragment
 
@@ -17,7 +18,7 @@ class PullRequestsFragment : BaseFragment() {
 
     override fun getLayoutResId(): Int = R.layout.fragment_pull_requests
 
-    override fun initView() {
+    override fun initView(view: View) {
     }
 
     override fun initDataAndEvent() {
