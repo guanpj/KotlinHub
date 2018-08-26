@@ -48,7 +48,7 @@ class FeedsFragment : BaseMvpFragment<FeedsPresenter>(), FeedsContract.View<Even
         presenter.initData()
     }
 
-    override fun getLayoutResId(): Int = R.layout.fragment_feeds
+    override fun getLayoutResId(): Int = R.layout.fragment_common_list
 
     override fun onDataInit(data: GitHubPaging<Event>){
         adapter.addData(data)
