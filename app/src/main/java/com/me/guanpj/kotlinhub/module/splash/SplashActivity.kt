@@ -32,7 +32,6 @@ class SplashActivity : BaseActivity() {
                 if (TextUtils.isEmpty(AccountManager.username))
                     LoginActivity::class else MainActivity::class
             }.let(this::jumpToActivity)
-            134.let {  }
             finish()
         }
     }

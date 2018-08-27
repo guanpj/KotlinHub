@@ -16,7 +16,8 @@
         app:navigationIcon="@drawable/ic_menu"
         app:titleTextColor="?icon_color"
         app:popupTheme="?android:toolbarStyle"
-        app:layout_behavior="@string/bye_burger_title_behavior">
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:layout_collapseMode="pin">
 
     </android.support.v7.widget.Toolbar>
 
