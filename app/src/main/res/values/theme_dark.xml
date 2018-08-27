@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
- ~ Copied from Copyright (C) 2017 Kosh.
- ~ Modified by Copyright (C) 2017 guanpj.
--->
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <color name="dark_primary">#2D3035</color>
@@ -26,6 +22,7 @@
         <item name="windowActionModeOverlay">true</item>
         <item name="card_background">@color/cardview_dark_background</item>
         <item name="icon_color">@color/dark_icon_color</item>
+        <item name="bottom_icon_color">@color/bottom_nav_item_color_night</item>
         <item name="comment_box_style">@style/CommentBoxDark</item>
         <item name="timeLine_background">@style/TimeLineBackgroundDark</item>
         <item name="patch_addition">@color/dark_patch_addition_color</item>

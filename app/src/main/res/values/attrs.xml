@@ -2,6 +2,7 @@
 <resources>
 
     <attr name="icon_color" format="color|reference"/>
+    <attr name="bottom_icon_color" format="color|reference"/>
     <attr name="divider_color" format="color|reference"/>
     <attr name="card_background" format="color|reference"/>
     <attr name="timeLine_background" format="reference"/>
@@ -23,4 +24,5 @@
         <attr name="originalLeft" format="dimension"/>
         <attr name="originalTop" format="dimension"/>
     </declare-styleable>
+
 </resources>

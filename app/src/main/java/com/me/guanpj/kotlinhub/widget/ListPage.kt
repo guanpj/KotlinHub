@@ -35,10 +35,10 @@ abstract class ListPage<D>: DataProvider<D> {
                     .doOnError {
                         logger.error("loadFromFirst, pageCount=$pageCount", it)
                     }
-                    /*.reduce { acc, page ->
+                    .reduce { acc, page ->
                         acc.mergeData(page)
-                    }*/
-                    .doOnNext {
+                    }
+                    .doOnSuccess {
                         data.clear()
                         data.mergeData(it)
                     }

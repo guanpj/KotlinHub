@@ -28,8 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="?attr/card_background"
-        app:itemIconTint="@color/bottom_nav_item_color"
-        app:itemTextColor="@color/bottom_nav_item_color"
+        app:itemIconTint="?attr/bottom_icon_color"
+        app:itemTextColor="?attr/bottom_icon_color"
         app:layout_behavior="@string/bye_burger_bottom_behavior"
         app:menu="@menu/menu_bottom_navigation" />
 
