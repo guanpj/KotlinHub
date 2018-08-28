@@ -9,6 +9,6 @@ import retrofit2.adapter.rxjava2.GitHubPaging
 
 class FeedsPage(private val userApi: UserApi) : ListPage<Event>() {
     override fun getData(page: Int): Observable<GitHubPaging<Event>> {
-        return userApi.getUserEvents(AccountManager.username, page)
+        return userApi.getNewsEvents(AccountManager.username, page)
     }
 }

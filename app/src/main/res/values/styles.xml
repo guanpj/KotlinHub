@@ -54,4 +54,8 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="Text_Link">
+        <item name="android:textColor">?android:colorAccent</item>
+    </style>
+
 </resources>

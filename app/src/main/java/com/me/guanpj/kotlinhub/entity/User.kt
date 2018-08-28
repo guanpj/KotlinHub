@@ -37,4 +37,10 @@ data class User(var login: String,
                 var total_private_repos: Int,
                 var owned_private_repos: Int,
                 var disk_usage: Int,
-                var collaborators: Int): Parcelable
+                var collaborators: Int): Parcelable {
+
+    enum class UserType {
+        User, Organization
+    }
+
+}

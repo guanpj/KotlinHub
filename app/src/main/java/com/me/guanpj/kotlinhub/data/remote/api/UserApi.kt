@@ -21,6 +21,9 @@ interface UserApi {
     @GET("/users/{login}/followers")
     fun followers(@Path("login") login: String, @Query("page") page: Int = 1): Observable<GitHubPaging<User>>
 
+    @GET("users/{user}/received_events")
+    fun getNewsEvents(@Path("user") user: String, @Query("page") page: Int): Observable<GitHubPaging<Event>>
+
     @GET("users/{user}/events")
     fun getUserEvents(@Path("user") user: String, @Query("page") page: Int): Observable<GitHubPaging<Event>>
 }

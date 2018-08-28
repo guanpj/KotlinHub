@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import android.widget.Toast
 import com.me.guanpj.kotlinhub.R
 import com.me.guanpj.kotlinhub.base.fragment.BaseMvpFragment
 import com.me.guanpj.kotlinhub.entity.Event
@@ -36,7 +37,7 @@ class FeedsFragment : BaseMvpFragment<FeedsPresenter>(), FeedsContract.View<Even
         recyclerView.adapter = adapter
         adapter.setEnableLoadMore(true)
         adapter.setLoadMoreView(CustomLoadMoreView())
-        adapter.setOnLoadMoreListener({ presenter::loadMore }, recyclerView)
+        adapter.setOnLoadMoreListener({ run { presenter.loadMore() } }, recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
         recyclerView.itemAnimator = DefaultItemAnimator()
 
@@ -46,37 +47,38 @@ class FeedsFragment : BaseMvpFragment<FeedsPresenter>(), FeedsContract.View<Even
 
     override fun initDataAndEvent() {
         presenter.initData()
+        adapter.setOnItemClickListener { adapter, view, position -> Toast.makeText(context, "abc", Toast.LENGTH_SHORT).show() }
     }
 
     override fun getLayoutResId(): Int = R.layout.fragment_common_list
 
-    override fun onDataInit(data: GitHubPaging<Event>){
-        adapter.addData(data)
+    override fun onDataInit(data: GitHubPaging<Event>) {
+        adapter.replaceData(data)
         if (data.isLast) adapter.loadMoreEnd()
         refreshView.isRefreshing = false
         dismissError()
     }
 
-    override fun onDataRefresh(data: GitHubPaging<Event>){
+    override fun onDataRefresh(data: GitHubPaging<Event>) {
         onDataInit(data)
     }
 
-    override fun onDataInitWithNothing(){
+    override fun onDataInitWithNothing() {
         showError("No Data.")
         adapter.loadMoreEnd()
         refreshView.isRefreshing = false
         statusView.isClickable = false
     }
 
-    override fun onDataInitWithError(error: String){
+    override fun onDataInitWithError(error: String) {
         showError(error)
         statusView.onClick {
             presenter.initData()
         }
     }
 
-    override fun onDataRefreshWithError(error: String){
-        if (adapter.data.isEmpty()){
+    override fun onDataRefreshWithError(error: String) {
+        if (adapter.data.isEmpty()) {
             showError(error)
             statusView.onClick {
                 presenter.initData()
@@ -86,13 +88,13 @@ class FeedsFragment : BaseMvpFragment<FeedsPresenter>(), FeedsContract.View<Even
         }
     }
 
-    override fun onMoreDataLoaded(data: GitHubPaging<Event>){
-        adapter.replaceData(data)
+    override fun onMoreDataLoaded(data: GitHubPaging<Event>) {
+        adapter.addData(data)
         if (data.isLast) adapter.loadMoreEnd()
         dismissError()
     }
 
-    override fun onMoreDataLoadedWithError(error: String){
+    override fun onMoreDataLoadedWithError(error: String) {
         showError(error)
         statusView.onClick {
             presenter.initData()

@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.me.guanpj.kotlinhub.R
 import com.me.guanpj.kotlinhub.base.fragment.BaseMvpFragment
+import com.me.guanpj.kotlinhub.module.adapter.CommonListAdapter
 import com.me.guanpj.kotlinhub.widget.view.CustomLoadMoreView
 import kotlinx.android.synthetic.main.fragment_common_list.*
 import org.jetbrains.anko.sdk15.listeners.onClick

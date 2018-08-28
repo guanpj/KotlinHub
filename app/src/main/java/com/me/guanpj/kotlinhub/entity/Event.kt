@@ -102,8 +102,8 @@ enum class EventType {
 data class Event(var id: String,
                  var type: EventType,
                  var actor: User,
-                 var repo: Repository,
-                 var org: User,
+                 var repo: Repository?,
+                 var org: User?,
                  var payload: EventPayload?,
                  @SerializedName("public") var isPublic: Boolean,
                  @SerializedName("created_at") var createdAt: Date?) : Parcelable {
