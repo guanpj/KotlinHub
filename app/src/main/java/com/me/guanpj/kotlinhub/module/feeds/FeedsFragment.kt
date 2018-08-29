@@ -47,6 +47,9 @@ class FeedsFragment : BaseMvpFragment<FeedsPresenter>(), FeedsContract.View<Even
 
     override fun initDataAndEvent() {
         presenter.initData()
+        adapter.setOnItemChildClickListener { adapter, view, pos ->
+            Toast.makeText(context, "abcdddd", Toast.LENGTH_SHORT).show()
+        }
         adapter.setOnItemClickListener { adapter, view, position -> Toast.makeText(context, "abc", Toast.LENGTH_SHORT).show() }
     }
 

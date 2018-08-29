@@ -147,10 +147,10 @@ class FeedsAdapter : CommonListAdapter<Event>(R.layout.item_feeds) {
 
         holder.setVisible(R.id.action, true)
         if (descSpan != null) {
-            holder.setVisible(R.id.desc, true)
+            holder.setGone(R.id.desc, true)
             holder.setText(R.id.desc, descSpan)
         } else {
-            holder.setVisible(R.id.desc, false)
+            holder.setGone(R.id.desc, false)
         }
 
         actionStr = StringUtils.upCaseFirstChar(actionStr)

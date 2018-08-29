@@ -10,7 +10,7 @@ import org.jetbrains.anko.dip
 abstract class CommonListAdapter<D>(@LayoutRes layoutResId: Int) : BaseQuickAdapter<D, BaseViewHolder>(layoutResId) {
 
     companion object {
-        private const val CARD_TAP_DURATION = 100L
+        private const val CARD_TAP_DURATION = 50L
     }
 
     init {
@@ -26,10 +26,8 @@ abstract class CommonListAdapter<D>(@LayoutRes layoutResId: Int) : BaseQuickAdap
                             .scaleX(1.03f).scaleY(1.03f)
                             .translationZ(holder.itemView.dip(10).toFloat())
                             .duration = CARD_TAP_DURATION
-                    return@setOnTouchListener true
                 }
                 MotionEvent.ACTION_UP -> {
-                    super.setOnItemClick(holder.itemView, position)
                     ViewCompat.animate(holder.itemView)
                             .scaleX(1f).scaleY(1f)
                             .translationZ(holder.itemView.dip(0).toFloat())
@@ -44,5 +42,6 @@ abstract class CommonListAdapter<D>(@LayoutRes layoutResId: Int) : BaseQuickAdap
             }
             false
         }
+
     }
 }
