@@ -5,6 +5,7 @@ import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.widget.Toast
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.me.guanpj.kotlinhub.R
 import com.me.guanpj.kotlinhub.base.fragment.BaseMvpFragment
 import com.me.guanpj.kotlinhub.entity.Event
@@ -37,6 +38,8 @@ class FeedsFragment : BaseMvpFragment<FeedsPresenter>(), FeedsContract.View<Even
         recyclerView.adapter = adapter
         adapter.setEnableLoadMore(true)
         adapter.setLoadMoreView(CustomLoadMoreView())
+        adapter.setNotDoAnimationCount(3)
+        adapter.openLoadAnimation(BaseQuickAdapter.SCALEIN)
         adapter.setOnLoadMoreListener({ run { presenter.loadMore() } }, recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
         recyclerView.itemAnimator = DefaultItemAnimator()

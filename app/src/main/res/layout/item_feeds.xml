@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/card_view_vertical_margin"
     android:layout_marginLeft="@dimen/card_view_horizontal_margin"
     android:layout_marginRight="@dimen/card_view_horizontal_margin"
     android:layout_marginTop="@dimen/card_view_vertical_margin"
+    android:layout_marginBottom="@dimen/card_view_vertical_margin"
     android:background="?card_background"
     android:foreground="?android:attr/selectableItemBackground"
     app:cardBackgroundColor="?card_background"
-    app:cardCornerRadius="2dp">
+    app:cardCornerRadius="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -67,6 +67,7 @@
             android:layout_marginBottom="@dimen/spacing_micro"
             android:ellipsize="end"
             android:maxLines="4"
+            android:text="是两地分居两地分居来到了附近的事实是生生世世生生世世"
             android:textColor="?android:textColorSecondary"
             android:textSize="@dimen/text_small" />
 
