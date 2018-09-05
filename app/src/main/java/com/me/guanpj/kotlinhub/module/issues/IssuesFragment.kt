@@ -12,7 +12,6 @@ class IssuesFragment : BaseFragment() {
             val args = Bundle()
             val fragment = IssuesFragment()
             fragment.arguments = args
-
             return fragment
         }
     }
