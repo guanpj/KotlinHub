@@ -16,9 +16,10 @@ class IssuesFragment : BaseFragment() {
         }
     }
 
-    override fun getLayoutResId(): Int = R.layout.fragment_issues
+    override fun getLayoutResId(): Int = R.layout.fragment_common_tab
 
     override fun initView(view: View) {
+
     }
 
     override fun initDataAndEvent() {

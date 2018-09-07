@@ -86,4 +86,18 @@
         <item name="divider_color">@color/light_divider</item>
     </style>
 
+    <style name="TabTextAppearanceLight" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textSize">@dimen/design_tab_text_size</item>
+        <item name="android:textColor">?android:textColorTertiary</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+    <style name="TabLayoutLight" parent="Base.Widget.Design.TabLayout">
+        <item name="tabMaxWidth">@dimen/design_tab_max_width</item>
+        <item name="tabSelectedTextColor">?colorAccent</item>
+        <item name="tabIndicatorColor">?colorAccent</item>
+        <item name="tabBackground">?colorPrimary</item>
+        <item name="tabTextAppearance">@style/TabTextAppearanceLight</item>
+    </style>
+
 </resources>

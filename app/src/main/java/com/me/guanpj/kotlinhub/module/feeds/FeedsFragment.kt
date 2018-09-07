@@ -38,6 +38,7 @@ class FeedsFragment : BaseMvpFragment<FeedsPresenter>(), FeedsContract.View<Even
         recyclerView.adapter = adapter
         adapter.setEnableLoadMore(true)
         adapter.setLoadMoreView(CustomLoadMoreView())
+        adapter.isFirstOnly(false)
         adapter.setNotDoAnimationCount(3)
         adapter.openLoadAnimation(BaseQuickAdapter.SCALEIN)
         adapter.setOnLoadMoreListener({ run { presenter.loadMore() } }, recyclerView)
