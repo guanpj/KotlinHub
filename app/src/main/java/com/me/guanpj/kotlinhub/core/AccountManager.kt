@@ -1,10 +1,12 @@
 package com.me.guanpj.kotlinhub.core
 
+import android.annotation.SuppressLint
 import com.google.gson.Gson
 import com.me.guanpj.kotlinhub.entity.User
 import com.me.guanpj.kotlinhub.ext.fromJson
 import com.me.guanpj.kotlinhub.ext.pref
 
+@SuppressLint("StaticFieldLeak")
 object AccountManager {
     var authId by pref(-1)
     var username by pref("")

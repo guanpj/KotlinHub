@@ -88,7 +88,7 @@
 
     <style name="TabTextAppearanceLight" parent="TextAppearance.AppCompat.Button">
         <item name="android:textSize">@dimen/design_tab_text_size</item>
-        <item name="android:textColor">?android:textColorTertiary</item>
+        <item name="android:textColor">?attr/icon_color</item>
         <item name="textAllCaps">true</item>
     </style>
 
