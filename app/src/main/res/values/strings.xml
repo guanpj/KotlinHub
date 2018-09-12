@@ -75,4 +75,13 @@
     <string name="submitted_pull_request_review_at">Submitted pull request review at %s</string>
     <string name="edited_pull_request_review_at">Edited pull request review at %s</string>
     <string name="dismissed_pull_request_review_at">Dismissed pull request review at %s</string>
+
+    <string name="created">Created</string>
+    <string name="assigned">Assigned</string>
+    <string name="mentioned">Mentioned</string>
+    <string name="participated">Participated</string>
+
+    <string name="opened">Opened</string>
+    <string name="closed">Closed</string>
+    <string name="all">All</string>
 </resources>
