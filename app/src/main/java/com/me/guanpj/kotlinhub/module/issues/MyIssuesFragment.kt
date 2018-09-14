@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.View
 import com.me.guanpj.kotlinhub.R
 import com.me.guanpj.kotlinhub.base.fragment.BaseFragment
+import com.me.guanpj.kotlinhub.data.local.types.IssueState
 import com.me.guanpj.kotlinhub.data.local.types.MyIssuesType
-import com.me.guanpj.kotlinhub.entity.Issue
 
 class MyIssuesFragment : BaseFragment() {
 
     companion object {
-        fun newInstance(issueState: Issue.IssueState, created: MyIssuesType): MyIssuesFragment {
+        fun newInstance(issueState: IssueState, created: MyIssuesType): MyIssuesFragment {
             val args = Bundle()
             val fragment = MyIssuesFragment()
             fragment.arguments = args

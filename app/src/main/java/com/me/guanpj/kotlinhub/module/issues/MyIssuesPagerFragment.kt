@@ -7,12 +7,12 @@ import com.me.guanpj.kotlinhub.R
 import com.me.guanpj.kotlinhub.base.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_common_tab.*
 
-class IssuesFragment : BaseFragment() {
+class MyIssuesPagerFragment : BaseFragment() {
 
     companion object {
-        fun newInstance(): IssuesFragment {
+        fun newInstance(): MyIssuesPagerFragment {
             val args = Bundle()
-            val fragment = IssuesFragment()
+            val fragment = MyIssuesPagerFragment()
             fragment.arguments = args
             return fragment
         }
@@ -29,5 +29,7 @@ class IssuesFragment : BaseFragment() {
         pager.adapter = adapter
         tabs.setupWithViewPager(pager)
         tabs.tabMode = TabLayout.MODE_SCROLLABLE
+
+
     }
 }

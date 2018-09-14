@@ -5,7 +5,7 @@ import android.view.View
 import com.me.guanpj.kotlinhub.R
 import com.me.guanpj.kotlinhub.base.fragment.BaseFragment
 import com.me.guanpj.kotlinhub.module.feeds.FeedsFragment
-import com.me.guanpj.kotlinhub.module.issues.IssuesFragment
+import com.me.guanpj.kotlinhub.module.issues.MyIssuesPagerFragment
 import com.me.guanpj.kotlinhub.module.pull_requests.PullRequestsFragment
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.layout_appbar.*
@@ -34,11 +34,11 @@ class MainFragment : BaseFragment() {
     override fun initView(view: View) {
         toolbar.inflateMenu(R.menu.menu_main)
 
-        val firstFragment = findChildFragment(IssuesFragment::class.java)
+        val firstFragment = findChildFragment(MyIssuesPagerFragment::class.java)
 
         if(firstFragment == null) {
             mFragments[FIRST] = FeedsFragment.newInstance()
-            mFragments[SECOND] = IssuesFragment.newInstance()
+            mFragments[SECOND] = MyIssuesPagerFragment.newInstance()
             mFragments[THIRD] = PullRequestsFragment.newInstance()
 
             loadMultipleRootFragment(R.id.frame_layout_content, FIRST, mFragments[FIRST],
@@ -46,7 +46,7 @@ class MainFragment : BaseFragment() {
                     mFragments[THIRD])
         } else {
             mFragments[FIRST] = firstFragment
-            mFragments[SECOND] = findChildFragment(IssuesFragment::class.java)
+            mFragments[SECOND] = findChildFragment(MyIssuesPagerFragment::class.java)
             mFragments[THIRD] = findChildFragment(PullRequestsFragment::class.java)
         }
         bnv_main.setOnNavigationItemSelectedListener {

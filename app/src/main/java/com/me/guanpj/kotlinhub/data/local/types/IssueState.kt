@@ -4,7 +4,7 @@ import android.support.annotation.StringRes
 import com.me.guanpj.kotlinhub.R
 
 enum class IssueState (@StringRes status: Int) {
-    opened(R.string.opened),
+    `open`(R.string.opened),
     closed(R.string.closed),
     all(R.string.all);
 
