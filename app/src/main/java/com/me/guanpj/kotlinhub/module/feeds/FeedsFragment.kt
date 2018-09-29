@@ -95,13 +95,13 @@ class FeedsFragment : BaseMvpFragment<FeedsPresenter>(), FeedsContract.View<Even
         }
     }
 
-    override fun onMoreDataLoaded(data: GitHubPaging<Event>) {
+    override fun onLoadMoreData(data: GitHubPaging<Event>) {
         adapter.addData(data)
         if (data.isLast) adapter.loadMoreEnd()
         dismissError()
     }
 
-    override fun onMoreDataLoadedWithError(error: String) {
+    override fun onLoadMoreDataWithError(error: String) {
         showError(error)
         statusView.onClick {
             presenter.initData()

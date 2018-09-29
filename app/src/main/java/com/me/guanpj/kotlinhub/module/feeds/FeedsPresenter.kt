@@ -47,9 +47,9 @@ class FeedsPresenter @Inject constructor() : BasePresenter<FeedsContract.View<Ev
                 .subscribe(
                         {
                             correctEvent(it)
-                            view.onMoreDataLoaded(it)
+                            view.onLoadMoreData(it)
                         },
-                        { view.onMoreDataLoadedWithError(it.message ?: it.toString()) }
+                        { view.onLoadMoreDataWithError(it.message ?: it.toString()) }
                 ).let(disposableList::add)
     }
 

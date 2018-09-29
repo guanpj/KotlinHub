@@ -1,10 +1,10 @@
-package com.me.guanpj.kotlinhub.module.feeds
+package com.me.guanpj.kotlinhub.module.issues
 
 import com.me.guanpj.kotlinhub.base.IMvpView
 import com.me.guanpj.kotlinhub.base.IPresenter
 import retrofit2.adapter.rxjava2.GitHubPaging
 
-interface FeedsContract {
+interface MyIssuesContract {
     interface View<D> : IMvpView {
         fun onDataInit(data: GitHubPaging<D>)
 
@@ -16,9 +16,9 @@ interface FeedsContract {
 
         fun onDataRefreshWithError(error: String)
 
-        fun onLoadMoreData(data: GitHubPaging<D>)
+        fun onMoreDataLoaded(data: GitHubPaging<D>)
 
-        fun onLoadMoreDataWithError(error: String)
+        fun onMoreDataLoadedWithError(error: String)
     }
 
     interface Presenter<D> : IPresenter<View<D>> {

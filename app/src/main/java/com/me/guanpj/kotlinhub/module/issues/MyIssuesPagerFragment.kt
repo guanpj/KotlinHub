@@ -29,7 +29,5 @@ class MyIssuesPagerFragment : BaseFragment() {
         pager.adapter = adapter
         tabs.setupWithViewPager(pager)
         tabs.tabMode = TabLayout.MODE_SCROLLABLE
-
-
     }
 }

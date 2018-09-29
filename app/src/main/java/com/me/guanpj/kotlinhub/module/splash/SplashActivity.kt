@@ -29,7 +29,7 @@ class SplashActivity : BaseActivity() {
     override fun initDataAndEvent() {
         Observable.timer(50, TimeUnit.MILLISECONDS).subscribe {
             run {
-                if (TextUtils.isEmpty(AccountManager.username))
+                if (TextUtils.isEmpty(AccountManager.userName))
                     LoginActivity::class else MainActivity::class
             }.let(this::jumpToActivity)
             finish()
