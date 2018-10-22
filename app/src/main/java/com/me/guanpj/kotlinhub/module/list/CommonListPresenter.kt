@@ -10,25 +10,25 @@ class CommonListPresenter<D, out V : CommonListFragment<D, CommonListPresenter<D
     fun initData() {
         listPage.loadFromFirst()
                 .subscribe(
-                        { if (it.isEmpty()) view.onDataInitWithNothing() else view.onDataInit(it) },
-                        {view.onDataInitWithError(it.message ?: it.toString()) })
-                .let(disposableList::add)
+                        { if (it.isEmpty()) getView()?.onDataInitWithNothing() else getView()?.onDataInit(it) },
+                        {getView()?.onDataInitWithError(it.message ?: it.toString()) })
+                .also { addDisposable(it) }
     }
 
     fun refreshData() {
         listPage.loadFromFirst()
                 .subscribe(
-                        { if (it.isEmpty()) view.onDataInitWithNothing() else view.onDataRefresh(it) },
-                        { view.onDataRefreshWithError(it.message ?: it.toString()) }
-                ).let(disposableList::add)
+                        { if (it.isEmpty()) getView()?.onDataInitWithNothing() else getView()?.onDataRefresh(it) },
+                        { getView()?.onDataRefreshWithError(it.message ?: it.toString()) }
+                ).also { addDisposable(it) }
     }
 
     fun loadMore() {
         listPage.loadMore()
                 .subscribe(
-                        { view.onMoreDataLoaded(it) },
-                        { view.onMoreDataLoadedWithError(it.message ?: it.toString()) }
-                ).let(disposableList::add)
+                        { getView()?.onMoreDataLoaded(it) },
+                        { getView()?.onMoreDataLoadedWithError(it.message ?: it.toString()) }
+                ).also { addDisposable(it) }
     }
 
 }

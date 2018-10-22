@@ -22,12 +22,12 @@ abstract class BaseMvpActivity<P : BasePresenter<*>>: BaseActivity(), IMvpView, 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
+        presenter.onAttach(this)
         super.onCreate(savedInstanceState)
-        presenter.onAttatch(this)
     }
 
     override fun onDestroy() {
-        super.onDestroy()
         presenter.onDetach()
+        super.onDestroy()
     }
 }

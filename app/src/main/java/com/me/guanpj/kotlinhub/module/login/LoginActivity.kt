@@ -9,6 +9,7 @@ import com.me.guanpj.kotlinhub.ext.yes
 import com.me.guanpj.kotlinhub.module.main.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.sdk15.listeners.onClick
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginContract.View {
@@ -48,7 +49,7 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginContract.View {
 
     override fun onLoginSuccess(){
         toast("登录成功")
-        jumpToActivity(MainActivity::class)
+        startActivity<MainActivity>()
     }
 
     private fun showTips(view: EditText, tips: String){

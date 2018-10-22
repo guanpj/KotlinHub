@@ -24,13 +24,13 @@ abstract class BaseMvpFragment<out P : BasePresenter<*>> : BaseFragment(), IMvpV
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        presenter.onAttach(this)
         super.onViewCreated(view, savedInstanceState)
-        presenter.onAttatch(this)
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
         presenter.onDetach()
+        super.onDestroyView()
     }
 
     protected open fun showError(error: String){

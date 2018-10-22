@@ -51,10 +51,11 @@ class LoginPresenter @Inject constructor() : BasePresenter<LoginContract.View>()
                     //AccountManager.notifyLogin(it)
                 }
                 .subscribe({
-                    view.onLoginSuccess()
+                    getView()?.onLoginSuccess()
                 }, {
-                    view.onLoginError(it)
+                    getView()?.onLoginError(it)
                 })
+                .also { addDisposable(it) }
     }
 
     fun logout() = authApi.deleteAuthorization(AccountManager.authId)
@@ -70,5 +71,4 @@ class LoginPresenter @Inject constructor() : BasePresenter<LoginContract.View>()
             }
 
     class AccountException(val authorizationRsp: AuthorizationRsp) : Exception("Already logged in.")
-
 }

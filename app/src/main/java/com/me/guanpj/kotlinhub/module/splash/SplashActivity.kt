@@ -11,6 +11,7 @@ import com.me.guanpj.kotlinhub.core.AppStatusTracker
 import com.me.guanpj.kotlinhub.module.login.LoginActivity
 import com.me.guanpj.kotlinhub.module.main.MainActivity
 import io.reactivex.Observable
+import org.jetbrains.anko.startActivity
 import java.util.concurrent.TimeUnit
 
 class SplashActivity : BaseActivity() {
@@ -28,10 +29,8 @@ class SplashActivity : BaseActivity() {
     @SuppressLint("CheckResult")
     override fun initDataAndEvent() {
         Observable.timer(50, TimeUnit.MILLISECONDS).subscribe {
-            run {
-                if (TextUtils.isEmpty(AccountManager.userName))
-                    LoginActivity::class else MainActivity::class
-            }.let(this::jumpToActivity)
+            if (TextUtils.isEmpty(AccountManager.userName))
+                startActivity<LoginActivity>() else startActivity<MainActivity>()
             finish()
         }
     }

@@ -20,26 +20,26 @@ class FeedsPresenter @Inject constructor() : BasePresenter<FeedsContract.View<Ev
         listPage.loadFromFirst()
                 .subscribe(
                         {
-                            if (it.isEmpty()) view.onDataInitWithNothing() else {
+                            if (it.isEmpty()) getView()?.onDataInitWithNothing() else {
                                 correctEvent(it)
-                                view.onDataInit(it)
+                                getView()?.onDataInit(it)
                             }
                         },
-                        { view.onDataInitWithError(it.message ?: it.toString()) })
-                .let(disposableList::add)
+                        { getView()?.onDataInitWithError(it.message ?: it.toString()) })
+                .also { addDisposable(it) }
     }
 
     fun refreshData() {
         listPage.loadFromFirst()
                 .subscribe(
                         {
-                            if (it.isEmpty()) view.onDataInitWithNothing() else {
+                            if (it.isEmpty()) getView()?.onDataInitWithNothing() else {
                                 correctEvent(it)
-                                view.onDataRefresh(it)
+                                getView()?.onDataRefresh(it)
                             }
                         },
-                        { view.onDataRefreshWithError(it.message ?: it.toString()) }
-                ).let(disposableList::add)
+                        { getView()?.onDataRefreshWithError(it.message ?: it.toString()) }
+                ).also { addDisposable(it) }
     }
 
     fun loadMore() {
@@ -47,10 +47,10 @@ class FeedsPresenter @Inject constructor() : BasePresenter<FeedsContract.View<Ev
                 .subscribe(
                         {
                             correctEvent(it)
-                            view.onLoadMoreData(it)
+                            getView()?.onLoadMoreData(it)
                         },
-                        { view.onLoadMoreDataWithError(it.message ?: it.toString()) }
-                ).let(disposableList::add)
+                        { getView()?.onLoadMoreDataWithError(it.message ?: it.toString()) }
+                ).also { addDisposable(it) }
     }
 
     private fun correctEvent(events: GitHubPaging<Event>) {

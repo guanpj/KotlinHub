@@ -2,14 +2,21 @@ package com.me.guanpj.kotlinhub.base.activity
 
 import android.content.Intent
 import android.os.Bundle
+import com.me.guanpj.kotlinhub.base.IBaseView
 import com.me.guanpj.kotlinhub.core.AppStatus
 import com.me.guanpj.kotlinhub.core.AppStatusTracker
 import com.me.guanpj.kotlinhub.module.main.MainActivity
 import com.me.guanpj.kotlinhub.module.splash.SplashActivity
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 import me.yokeyword.fragmentation_swipeback.SwipeBackActivity
+import org.jetbrains.anko.indeterminateProgressDialog
 import kotlin.reflect.KClass
 
-abstract class BaseActivity : SwipeBackActivity() {
+abstract class BaseActivity : SwipeBackActivity(), IBaseView {
+
+    val dialog by lazy { indeterminateProgressDialog("请稍候...") }
+    private val compositeDisposable by lazy { CompositeDisposable() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,12 +48,24 @@ abstract class BaseActivity : SwipeBackActivity() {
         startActivity(intent)
     }
 
-    fun jumpToActivity(target: KClass<*>) {
-        jumpToActivity(target, null)
+    override fun addDisposable(disposable: Disposable) {
+        compositeDisposable.add(disposable)
     }
 
-    fun jumpToActivity(target: KClass<*>, data: Bundle?) {
-        startActivity(Intent(this, target.java).apply { if (null != data) putExtras(data) })
+    override fun removeDisposable(disposable: Disposable) {
+        compositeDisposable.remove(disposable)
+    }
+
+    override fun deleteDisposable(disposable: Disposable) {
+        compositeDisposable.delete(disposable)
+    }
+
+    override fun showDialog() {
+        dialog.show()
+    }
+
+    override fun hideDialog() {
+        dialog.hide()
     }
 
     abstract fun getLayoutResId(): Int

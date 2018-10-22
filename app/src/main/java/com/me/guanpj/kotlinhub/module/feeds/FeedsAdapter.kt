@@ -153,7 +153,7 @@ class FeedsAdapter : CommonListAdapter<Event>(R.layout.item_feeds) {
             holder.setGone(R.id.desc, false)
         }
 
-        actionStr = StringUtils.upCaseFirstChar(actionStr)
+        actionStr = StringUtils.upCaseFirstChar(actionStr!!)
         actionStr = actionStr ?: ""
         val span = SpannableStringBuilder(actionStr)
         val matcher = GitHubHelper.REPO_FULL_NAME_PATTERN.matcher(actionStr)
