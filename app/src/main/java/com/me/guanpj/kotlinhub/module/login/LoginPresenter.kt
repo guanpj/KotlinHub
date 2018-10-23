@@ -51,9 +51,9 @@ class LoginPresenter @Inject constructor() : BasePresenter<LoginContract.View>()
                     //AccountManager.notifyLogin(it)
                 }
                 .subscribe({
-                    getView()?.onLoginSuccess()
+                    getView().onLoginSuccess()
                 }, {
-                    getView()?.onLoginError(it)
+                    getView().onLoginError(it)
                 })
                 .also { addDisposable(it) }
     }

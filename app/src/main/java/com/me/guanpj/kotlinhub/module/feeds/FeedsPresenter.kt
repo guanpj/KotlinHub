@@ -20,12 +20,12 @@ class FeedsPresenter @Inject constructor() : BasePresenter<FeedsContract.View<Ev
         listPage.loadFromFirst()
                 .subscribe(
                         {
-                            if (it.isEmpty()) getView()?.onDataInitWithNothing() else {
+                            if (it.isEmpty()) getView().onDataInitWithNothing() else {
                                 correctEvent(it)
-                                getView()?.onDataInit(it)
+                                getView().onDataInit(it)
                             }
                         },
-                        { getView()?.onDataInitWithError(it.message ?: it.toString()) })
+                        { getView().onDataInitWithError(it.message ?: it.toString()) })
                 .also { addDisposable(it) }
     }
 
@@ -33,12 +33,12 @@ class FeedsPresenter @Inject constructor() : BasePresenter<FeedsContract.View<Ev
         listPage.loadFromFirst()
                 .subscribe(
                         {
-                            if (it.isEmpty()) getView()?.onDataInitWithNothing() else {
+                            if (it.isEmpty()) getView().onDataInitWithNothing() else {
                                 correctEvent(it)
-                                getView()?.onDataRefresh(it)
+                                getView().onDataRefresh(it)
                             }
                         },
-                        { getView()?.onDataRefreshWithError(it.message ?: it.toString()) }
+                        { getView().onDataRefreshWithError(it.message ?: it.toString()) }
                 ).also { addDisposable(it) }
     }
 
@@ -47,9 +47,9 @@ class FeedsPresenter @Inject constructor() : BasePresenter<FeedsContract.View<Ev
                 .subscribe(
                         {
                             correctEvent(it)
-                            getView()?.onLoadMoreData(it)
+                            getView().onLoadMoreData(it)
                         },
-                        { getView()?.onLoadMoreDataWithError(it.message ?: it.toString()) }
+                        { getView().onLoadMoreDataWithError(it.message ?: it.toString()) }
                 ).also { addDisposable(it) }
     }
 

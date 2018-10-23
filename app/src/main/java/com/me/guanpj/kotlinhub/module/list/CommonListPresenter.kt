@@ -10,24 +10,24 @@ class CommonListPresenter<D, out V : CommonListFragment<D, CommonListPresenter<D
     fun initData() {
         listPage.loadFromFirst()
                 .subscribe(
-                        { if (it.isEmpty()) getView()?.onDataInitWithNothing() else getView()?.onDataInit(it) },
-                        {getView()?.onDataInitWithError(it.message ?: it.toString()) })
+                        { if (it.isEmpty()) getView().onDataInitWithNothing() else getView().onDataInit(it) },
+                        {getView().onDataInitWithError(it.message ?: it.toString()) })
                 .also { addDisposable(it) }
     }
 
     fun refreshData() {
         listPage.loadFromFirst()
                 .subscribe(
-                        { if (it.isEmpty()) getView()?.onDataInitWithNothing() else getView()?.onDataRefresh(it) },
-                        { getView()?.onDataRefreshWithError(it.message ?: it.toString()) }
+                        { if (it.isEmpty()) getView().onDataInitWithNothing() else getView().onDataRefresh(it) },
+                        { getView().onDataRefreshWithError(it.message ?: it.toString()) }
                 ).also { addDisposable(it) }
     }
 
     fun loadMore() {
         listPage.loadMore()
                 .subscribe(
-                        { getView()?.onMoreDataLoaded(it) },
-                        { getView()?.onMoreDataLoadedWithError(it.message ?: it.toString()) }
+                        { getView().onMoreDataLoaded(it) },
+                        { getView().onMoreDataLoadedWithError(it.message ?: it.toString()) }
                 ).also { addDisposable(it) }
     }
 
