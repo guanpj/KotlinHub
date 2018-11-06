@@ -20,7 +20,7 @@ noArg {
 
 android {
     compileSdkVersion compile_sdk_version
-    buildToolsVersion build_tools_version
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId "com.me.guanpj.kotlinhub"
