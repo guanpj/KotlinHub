@@ -20,8 +20,6 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-import javax.annotation.Nullable;
-
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
 import io.reactivex.Maybe;
@@ -97,13 +95,11 @@ public final class MyRxJava2CallAdapterFactory extends CallAdapter.Factory {
         return new MyRxJava2CallAdapterFactory(subscribeOnScheduler, observerOnScheduler, false);
     }
 
-    private final @Nullable
     Scheduler subscribeOnScheduler;
-    private final @Nullable
     Scheduler observerOnScheduler;
     private final boolean isAsync;
 
-    private MyRxJava2CallAdapterFactory(@Nullable Scheduler subscribeOnScheduler, @Nullable Scheduler observerOnScheduler, boolean isAsync) {
+    private MyRxJava2CallAdapterFactory(Scheduler subscribeOnScheduler, Scheduler observerOnScheduler, boolean isAsync) {
         this.subscribeOnScheduler = subscribeOnScheduler;
         this.observerOnScheduler = observerOnScheduler;
         this.isAsync = isAsync;

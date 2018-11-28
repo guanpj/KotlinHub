@@ -1,7 +1,7 @@
 package com.me.guanpj.kotlinhub.base.activity
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import com.me.guanpj.kotlinhub.base.BasePresenter
 import com.me.guanpj.kotlinhub.base.IMvpView
 import dagger.android.AndroidInjection

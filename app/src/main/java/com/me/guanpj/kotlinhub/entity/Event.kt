@@ -1,9 +1,7 @@
 package com.me.guanpj.kotlinhub.entity
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import com.me.guanpj.kotlinhub.util.anno.PoKo
-import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 enum class EventType {
@@ -98,7 +96,6 @@ enum class EventType {
 }
 
 @PoKo
-@Parcelize
 data class Event(var id: String,
                  var type: EventType,
                  var actor: User,
@@ -106,6 +103,6 @@ data class Event(var id: String,
                  var org: User?,
                  var payload: EventPayload?,
                  @SerializedName("public") var isPublic: Boolean,
-                 @SerializedName("created_at") var createdAt: Date?) : Parcelable {
+                 @SerializedName("created_at") var createdAt: Date?) {
 
 }

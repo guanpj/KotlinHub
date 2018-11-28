@@ -1,9 +1,9 @@
 package com.me.guanpj.kotlinhub.module.issues
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
-import android.support.v4.view.PagerAdapter
+import androidx.core.app.Fragment
+import androidx.core.app.FragmentManager
+import androidx.core.app.FragmentPagerAdapter
+import androidx.core.view.PagerAdapter
 
 class FragmentAdapter(fm: FragmentManager, private val mFragments: List<FragmentPagerAdapterModel>) : FragmentPagerAdapter(fm) {
 

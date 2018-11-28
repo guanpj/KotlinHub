@@ -3,9 +3,9 @@ package com.me.guanpj.kotlinhub.widget.view
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.graphics.Color
-import android.support.annotation.StringRes
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.StringRes
 import org.jetbrains.anko.*
 
 class DataLoadStatusView(val parentView: ViewGroup) : _RelativeLayout(parentView.context) {

@@ -1,14 +1,11 @@
 package com.me.guanpj.kotlinhub.entity
 
-import android.os.Parcelable
 import android.text.TextUtils
 import com.google.gson.annotations.SerializedName
 import com.me.guanpj.kotlinhub.util.anno.PoKo
-import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 @PoKo
-@Parcelize
 data class EventPayload(@SerializedName("push_id")
                         var pushId: String,
                         var size: Int,
@@ -38,7 +35,7 @@ data class EventPayload(@SerializedName("push_id")
                         var member: User?,
 
                         var organization: User?,
-                        @SerializedName("blocked_user") var blockedUser: User?) : Parcelable {
+                        @SerializedName("blocked_user") var blockedUser: User?) {
 
     enum class RefType {
         repository, branch, tag

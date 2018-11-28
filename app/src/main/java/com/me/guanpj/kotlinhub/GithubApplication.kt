@@ -5,7 +5,7 @@ import android.app.Application
 import android.content.Context
 import android.content.ContextWrapper
 import android.support.multidex.MultiDex
-import android.support.v4.app.Fragment
+import androidx.core.app.Fragment
 import com.me.guanpj.kotlinhub.core.AppStatusTracker
 import com.me.guanpj.kotlinhub.di.component.AppComponent
 import com.me.guanpj.kotlinhub.di.component.DaggerAppComponent

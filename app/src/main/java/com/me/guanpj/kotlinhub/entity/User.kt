@@ -1,20 +1,15 @@
 package com.me.guanpj.kotlinhub.entity
 
-import android.os.Parcelable
 import com.me.guanpj.kotlinhub.util.anno.PoKo
-import kotlinx.android.parcel.Parcelize
 
 @PoKo
-@Parcelize
 data class BasicUser(
         var login: String,
         var avatar_url: String,
         var html_url: String
-): Parcelable
-
+    )
 
 @PoKo
-@Parcelize
 data class User(var login: String,
                 var avatar_url: String,
                 var html_url: String,
@@ -37,7 +32,7 @@ data class User(var login: String,
                 var total_private_repos: Int,
                 var owned_private_repos: Int,
                 var disk_usage: Int,
-                var collaborators: Int): Parcelable {
+                var collaborators: Int) {
 
     enum class UserType {
         User, Organization

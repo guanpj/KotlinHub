@@ -1,13 +1,10 @@
 package com.me.guanpj.kotlinhub.entity
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import com.me.guanpj.kotlinhub.util.anno.PoKo
-import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 @PoKo
-@Parcelize
 data class IssueEvent(var id: String,
                       var user: User?,
                       @SerializedName("created_at") var createdAt: Date?,
@@ -26,7 +23,7 @@ data class IssueEvent(var id: String,
                       var reactions: Reactions?,
                       var source: IssueCrossReferencedSource?,
 
-                      var parentIssue: Issue?) : Parcelable {
+                      var parentIssue: Issue?) {
 
     enum class Type {
         /**

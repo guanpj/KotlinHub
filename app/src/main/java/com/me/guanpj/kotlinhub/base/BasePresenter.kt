@@ -7,7 +7,6 @@ import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
 import java.lang.reflect.Proxy
 
-
 abstract class BasePresenter<out V: IMvpView>: IPresenter<V> {
     private lateinit var weakView: WeakReference<V>
     private lateinit var proxyView: V

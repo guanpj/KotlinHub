@@ -1,13 +1,10 @@
 package com.me.guanpj.kotlinhub.entity
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import com.me.guanpj.kotlinhub.util.anno.PoKo
-import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 @PoKo
-@Parcelize
 data class Repository(var id: Int,
                         var name: String,
                         @SerializedName("full_name") var fullName: String,
@@ -40,7 +37,7 @@ data class Repository(var id: Int,
                         @SerializedName("has_pages") var isHasPages: Boolean,
 
                         var sinceStargazersCount: Int,
-                        var since: TrendingSince?) : Parcelable {
+                        var since: TrendingSince?) {
     enum class TrendingSince {
         Daily, Weekly, Monthly
     }

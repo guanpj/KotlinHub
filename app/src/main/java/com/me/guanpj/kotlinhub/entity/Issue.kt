@@ -8,7 +8,6 @@ import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 @PoKo
-@Parcelize
 data class Issue(var id: String?,
                  var number: Int,
                  var title: String?,
@@ -30,7 +29,7 @@ data class Issue(var id: String?,
                  var assignee: User?,
                  var assignees: ArrayList<User>?,
                  var milestone: Milestone?,
-                 @SerializedName("closed_by") var closedBy: User? = null) : Parcelable {
+                 @SerializedName("closed_by") var closedBy: User? = null) {
 
     val repoName: String?
         get() = if (!TextUtils.isEmpty(repoUrl) && repoUrl!!.contains("/"))

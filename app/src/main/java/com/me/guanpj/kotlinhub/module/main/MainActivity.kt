@@ -6,7 +6,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
-
     override fun getLayoutResId(): Int = R.layout.activity_main
 
     override fun initView() {

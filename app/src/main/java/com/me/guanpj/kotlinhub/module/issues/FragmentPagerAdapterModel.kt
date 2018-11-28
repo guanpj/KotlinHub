@@ -1,7 +1,7 @@
 package com.me.guanpj.kotlinhub.module.issues
 
 import android.content.Context
-import android.support.v4.app.Fragment
+import androidx.core.app.Fragment
 import com.me.guanpj.kotlinhub.R
 import com.me.guanpj.kotlinhub.data.local.types.IssueState
 import com.me.guanpj.kotlinhub.data.local.types.MyIssuesType

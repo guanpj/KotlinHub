@@ -11,18 +11,28 @@
     <attr name="patch_ref" format="color"/>
     <attr name="comment_box_style" format="reference"/>
 
+    <attr name="item_title" format="string" />
+    <attr name="item_content" format="string" />
+    <attr name="item_icon" format="reference" />
+    <attr name="item_op_icon" format="reference" />
+
+    <attr name="targetTop" format="dimension"/>
+    <attr name="targetLeft" format="dimension"/>
+    <attr name="originalLeft" format="dimension"/>
+    <attr name="originalTop" format="dimension"/>
+
     <declare-styleable name="DetailItemView">
-        <attr name="item_title" format="string" />
-        <attr name="item_content" format="string" />
-        <attr name="item_icon" format="reference" />
-        <attr name="item_op_icon" format="reference" />
+        <attr name="item_title"/>
+        <attr name="item_content"/>
+        <attr name="item_icon"/>
+        <attr name="item_op_icon"/>
     </declare-styleable>
 
     <declare-styleable name="AppBarLayoutBehavior">
-        <attr name="targetTop" format="dimension"/>
-        <attr name="targetLeft" format="dimension"/>
-        <attr name="originalLeft" format="dimension"/>
-        <attr name="originalTop" format="dimension"/>
+        <attr name="targetTop"/>
+        <attr name="targetLeft"/>
+        <attr name="originalLeft"/>
+        <attr name="originalTop"/>
     </declare-styleable>
 
 </resources>

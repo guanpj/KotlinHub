@@ -1,13 +1,10 @@
 package com.me.guanpj.kotlinhub.entity
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import com.me.guanpj.kotlinhub.util.anno.PoKo
-import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 @PoKo
-@Parcelize
 data class Release(var id: String?,
                    @SerializedName("tag_name") var tagName: String?,
                    @SerializedName("target_commitish") var targetCommitish: String?,
@@ -23,7 +20,7 @@ data class Release(var id: String?,
                    @SerializedName("published_at") var publishedAt: Date?,
 
                    var author: User?,
-                   var assets: List<ReleaseAsset>?) : Parcelable {
+                   var assets: List<ReleaseAsset>?) {
 
     //    {
     //        "url": "https://api.github.com/repos/ThirtyDegreesRay/OpenHub/releases/7754776",
