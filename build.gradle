@@ -8,7 +8,7 @@ buildscript {
     ext.target_sdk_version = 26
     ext.support_library_version = '27.1.1'
 
-    ext.kotlin_version = '1.3.0'
+    ext.kotlin_version = '1.3.10'
     ext.kotlinx_coroutines_version = '1.0.0'
     ext.anko_version = '0.10.7'
     ext.apollo_version = '1.0.0-alpha2'

@@ -31,7 +31,6 @@ abstract class BasePresenter<out V: IMvpView>: IPresenter<V> {
     fun isAttached(): Boolean = this.weakView.get() != null
 
     private inner class MyInvocationHandler<T>(private val target: T) : InvocationHandler {
-
         @Throws(InvocationTargetException::class, IllegalAccessException::class)
         override fun invoke(proxy: Any, method: Method, args: Array<out Any>): Any? {
             return if (isAttached()) {
