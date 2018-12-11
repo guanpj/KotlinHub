@@ -17,8 +17,8 @@
         <item name="colorPrimary">@color/dark_primary</item>
         <item name="colorPrimaryDark">@color/dark_primary_dark</item>
         <item name="colorAccent">@color/dark_accent</item>
-        <item name="colorControlNormal">?android:colorAccent</item>
-        <item name="actionModeBackground">?android:colorPrimary</item>
+        <item name="colorControlNormal">?attr/colorAccent</item>
+        <item name="actionModeBackground">?attr/colorPrimary</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="card_background">@color/cardview_dark_background</item>
         <item name="icon_color">@color/dark_icon_color</item>
@@ -32,12 +32,12 @@
         <item name="android:textColorPrimary">#EEEEEE</item>
         <item name="android:textColorSecondary">#9E9E9E</item>
         <item name="android:textColorTertiary">#ffe0e0e0</item>
-        <item name="android:colorEdgeEffect">?android:colorPrimary</item>
-        <item name="android:popupMenuStyle">@style/PopupMenuDark</item>
-        <item name="android:spinnerDropDownItemStyle">@style/PopupMenuDark</item>
-        <item name="android:dialogTheme">@style/DialogThemeDark</item>
-        <item name="android:alertDialogTheme">@style/DialogThemeDark</item>
-        <item name="android:toolbarStyle">@style/ToolbarStyleDark</item>
+        <item name="android:colorEdgeEffect">?attr/colorPrimary</item>
+        <item name="popupMenuStyle">@style/PopupMenuDark</item>
+        <item name="spinnerDropDownItemStyle">@style/PopupMenuDark</item>
+        <item name="dialogTheme">@style/DialogThemeDark</item>
+        <item name="alertDialogTheme">@style/DialogThemeDark</item>
+        <item name="toolbarStyle">@style/ToolbarStyleDark</item>
         <item name="android:windowBackground">@color/dark_window_background</item>
         <item name="android:windowAllowEnterTransitionOverlap">true</item>
         <item name="android:windowAllowReturnTransitionOverlap">true</item>
@@ -61,20 +61,20 @@
     </style>
 
     <style name="TimeLineBackgroundDark">
-        <item name="android:background">@drawable/ic_timeline_arrow_left</item>
-        <item name="android:backgroundTint">#2D3035</item>
+        <item name="background">@drawable/ic_timeline_arrow_left</item>
+        <item name="backgroundTint">#2D3035</item>
     </style>
 
     <style name="CommentBoxDark">
-        <item name="android:background">@drawable/ic_edittext</item>
-        <item name="android:backgroundTint">#2D3035</item>
+        <item name="background">@drawable/ic_edittext</item>
+        <item name="backgroundTint">#2D3035</item>
     </style>
 
     <style name="DialogThemeDark" parent="Theme.AppCompat.Dialog.Alert">
         <item name="colorPrimary">@color/dark_primary</item>
         <item name="colorPrimaryDark">@color/dark_primary_dark</item>
         <item name="colorAccent">@color/dark_accent</item>
-        <item name="android:toolbarStyle">@style/ToolbarStyleDark</item>
+        <item name="toolbarStyle">@style/ToolbarStyleDark</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="card_background">@color/cardview_dark_background</item>

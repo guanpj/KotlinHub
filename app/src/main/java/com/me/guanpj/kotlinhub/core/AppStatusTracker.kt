@@ -1,6 +1,6 @@
 package com.me.guanpj.kotlinhub.core
 
-import android.app.Activity
+import androidx.appcompat.app.AppCompatActivity
 import android.app.Application
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -10,7 +10,7 @@ import android.os.Bundle
 import java.util.*
 
 class AppStatusTracker private constructor(private val application: Application) : Application.ActivityLifecycleCallbacks {
-    private var allActivities: MutableSet<Activity>? = null
+    private var allActivities: MutableSet<AppCompatActivity>? = null
     private var appStatus = AppStatus.STATUS_FORCE_KILLED
     var isForground: Boolean = false
     private var activeCount: Int = 0
@@ -49,25 +49,25 @@ class AppStatusTracker private constructor(private val application: Application)
         this.isScreenOff = isScreenOff
     }
 
-    override fun onActivityCreated(activity: Activity, bundle: Bundle?) {
+    override fun onActivityCreated(activity: AppCompatActivity, bundle: Bundle?) {
         addActivity(activity)
     }
 
-    override fun onActivityStarted(activity: Activity) {
+    override fun onActivityStarted(activity: AppCompatActivity) {
         activeCount++
     }
 
-    override fun onActivityResumed(activity: Activity) {
+    override fun onActivityResumed(activity: AppCompatActivity) {
         isForground = true
         timestamp = 0L
         isScreenOff = false
     }
 
-    override fun onActivityPaused(activity: Activity) {
+    override fun onActivityPaused(activity: AppCompatActivity) {
 
     }
 
-    override fun onActivityStopped(activity: Activity) {
+    override fun onActivityStopped(activity: AppCompatActivity) {
         activeCount--
         if (activeCount == 0) {
             isForground = false
@@ -75,22 +75,22 @@ class AppStatusTracker private constructor(private val application: Application)
         }
     }
 
-    override fun onActivitySaveInstanceState(activity: Activity, bundle: Bundle?) {
+    override fun onActivitySaveInstanceState(activity: AppCompatActivity, bundle: Bundle?) {
 
     }
 
-    override fun onActivityDestroyed(activity: Activity) {
+    override fun onActivityDestroyed(activity: AppCompatActivity) {
         removeActivity(activity)
     }
 
-    fun addActivity(act: Activity) {
+    fun addActivity(act: AppCompatActivity) {
         if (allActivities == null) {
             allActivities = HashSet()
         }
         allActivities!!.add(act)
     }
 
-    fun removeActivity(act: Activity) {
+    fun removeActivity(act: AppCompatActivity) {
         if (allActivities != null) {
             allActivities!!.remove(act)
         }

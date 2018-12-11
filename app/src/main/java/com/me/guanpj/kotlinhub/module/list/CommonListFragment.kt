@@ -1,15 +1,15 @@
 package com.me.guanpj.kotlinhub.module.list
 
-import android.support.v7.widget.DefaultItemAnimator
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.me.guanpj.kotlinhub.R
 import com.me.guanpj.kotlinhub.base.fragment.BaseMvpFragment
 import com.me.guanpj.kotlinhub.module.adapter.CommonListAdapter
 import com.me.guanpj.kotlinhub.widget.view.CustomLoadMoreView
 import kotlinx.android.synthetic.main.fragment_common_list.*
 import org.jetbrains.anko.sdk15.listeners.onClick
-import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.support.v4.toast
 import retrofit2.adapter.rxjava2.GitHubPaging
 
@@ -26,7 +26,7 @@ class CommonListFragment<D, out P : CommonListPresenter<D, CommonListFragment<D,
         recyclerView.adapter = adapter
         adapter.setEnableLoadMore(true)
         adapter.setLoadMoreView(CustomLoadMoreView())
-        adapter.setOnLoadMoreListener({ presenter::loadMore }, recyclerView)
+        adapter.setOnLoadMoreListener(BaseQuickAdapter.RequestLoadMoreListener { presenter::loadMore }, recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
         recyclerView.itemAnimator = DefaultItemAnimator()
 

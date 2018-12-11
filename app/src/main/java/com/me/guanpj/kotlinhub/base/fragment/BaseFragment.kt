@@ -1,6 +1,5 @@
 package com.me.guanpj.kotlinhub.base.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,6 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import me.yokeyword.fragmentation_swipeback.SwipeBackFragment
 import org.jetbrains.anko.support.v4.indeterminateProgressDialog
-import kotlin.reflect.KClass
 
 abstract class BaseFragment : SwipeBackFragment(), IBaseView {
 

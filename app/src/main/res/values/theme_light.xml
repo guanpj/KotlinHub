@@ -17,8 +17,8 @@
         <item name="colorPrimary">@color/light_primary</item>
         <item name="colorPrimaryDark">@color/light_primary_dark</item>
         <item name="colorAccent">@color/light_accent</item>
-        <item name="colorControlNormal">?android:colorAccent</item>
-        <item name="actionModeBackground">?android:colorPrimary</item>
+        <item name="colorControlNormal">?attr/colorAccent</item>
+        <item name="actionModeBackground">?attr/colorPrimary</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="card_background">@color/cardview_light_background</item>
         <item name="icon_color">@color/light_icon_color</item>
@@ -32,12 +32,12 @@
         <item name="android:textColorPrimary">#212121</item>
         <item name="android:textColorSecondary">#727272</item>
         <item name="android:textColorTertiary">#686868</item>
-        <item name="android:colorEdgeEffect">?android:colorPrimary</item>
-        <item name="android:popupMenuStyle">@style/PopupMenuLight</item>
-        <item name="android:spinnerDropDownItemStyle">@style/PopupMenuLight</item>
-        <item name="android:dialogTheme">@style/DialogThemeLight</item>
-        <item name="android:alertDialogTheme">@style/DialogThemeLight</item>
-        <item name="android:toolbarStyle">@style/ToolbarStyleLight</item>
+        <item name="android:colorEdgeEffect">?attr/colorPrimary</item>
+        <item name="popupMenuStyle">@style/PopupMenuLight</item>
+        <item name="spinnerDropDownItemStyle">@style/PopupMenuLight</item>
+        <item name="dialogTheme">@style/DialogThemeLight</item>
+        <item name="alertDialogTheme">@style/DialogThemeLight</item>
+        <item name="toolbarStyle">@style/ToolbarStyleLight</item>
         <item name="android:windowBackground">@color/light_window_background</item>
         <item name="android:windowAllowEnterTransitionOverlap">true</item>
         <item name="android:windowAllowReturnTransitionOverlap">true</item>
@@ -61,18 +61,18 @@
     </style>
 
     <style name="TimeLineBackgroundLight">
-        <item name="android:background">@drawable/ic_timeline_arrow_left</item>
+        <item name="background">@drawable/ic_timeline_arrow_left</item>
     </style>
 
     <style name="CommentBoxLight">
-        <item name="android:background">@drawable/ic_edittext</item>
+        <item name="background">@drawable/ic_edittext</item>
     </style>
 
     <style name="DialogThemeLight" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorPrimary">@color/light_primary</item>
         <item name="colorPrimaryDark">@color/light_primary_dark</item>
         <item name="colorAccent">@color/light_accent</item>
-        <item name="android:toolbarStyle">@style/ToolbarStyleLight</item>
+        <item name="toolbarStyle">@style/ToolbarStyleLight</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="card_background">@color/cardview_light_background</item>

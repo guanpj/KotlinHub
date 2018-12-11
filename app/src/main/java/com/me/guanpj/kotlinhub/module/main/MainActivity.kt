@@ -10,7 +10,7 @@ class MainActivity : BaseActivity() {
 
     override fun initView() {
         if (findFragment(MainFragment::class.java) == null) {
-            loadRootFragment(R.id.fl_container, MainFragment.newInstance())
+            loadRootFragment(R.id.fl_container, MainFragment.newInstance(null))
         }
         nav_view_start.setCheckedItem(R.id.mainView)
     }

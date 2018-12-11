@@ -11,7 +11,6 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import me.yokeyword.fragmentation_swipeback.SwipeBackActivity
 import org.jetbrains.anko.indeterminateProgressDialog
-import kotlin.reflect.KClass
 
 abstract class BaseActivity : SwipeBackActivity(), IBaseView {
 

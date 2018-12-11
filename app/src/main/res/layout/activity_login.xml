@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:colorPrimary"
+    android:background="?attr/colorPrimary"
     android:gravity="center_horizontal"
     android:padding="@dimen/layout_margin"
     tools:context=".module.login.LoginActivity">
@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:padding="@dimen/spacing_normal"
-                android:background="?android:colorAccent"
+                android:background="?attr/colorAccent"
                 app:srcCompat="@mipmap/login_logo"/>
 
             <LinearLayout

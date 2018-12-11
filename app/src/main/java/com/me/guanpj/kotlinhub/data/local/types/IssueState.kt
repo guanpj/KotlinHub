@@ -1,6 +1,6 @@
 package com.me.guanpj.kotlinhub.data.local.types
 
-import androidx.annotation.StringRes
+import android.support.annotation.StringRes
 import com.me.guanpj.kotlinhub.R
 
 enum class IssueState (@StringRes status: Int) {

@@ -1,7 +1,7 @@
 package com.me.guanpj.kotlinhub.module.adapter
 
-import androidx.annotation.LayoutRes
-import androidx.core.view.ViewCompat
+import android.support.annotation.LayoutRes
+import android.support.v4.view.ViewCompat
 import android.view.MotionEvent
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder

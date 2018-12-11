@@ -1,10 +1,10 @@
 package com.me.guanpj.kotlinhub.module.feeds
 
 import android.os.Bundle
-import android.support.v7.widget.DefaultItemAnimator
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.widget.Toast
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.me.guanpj.kotlinhub.R
 import com.me.guanpj.kotlinhub.base.fragment.BaseMvpFragment
@@ -12,7 +12,6 @@ import com.me.guanpj.kotlinhub.entity.Event
 import com.me.guanpj.kotlinhub.widget.view.CustomLoadMoreView
 import kotlinx.android.synthetic.main.fragment_common_list.*
 import org.jetbrains.anko.sdk15.listeners.onClick
-import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.support.v4.toast
 import retrofit2.adapter.rxjava2.GitHubPaging
 

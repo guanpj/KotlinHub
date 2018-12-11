@@ -21,12 +21,7 @@ class MainFragment : BaseFragment() {
     var mCurrentFragmentIndex = 0
 
     companion object {
-        fun newInstance(): MainFragment {
-            val args = Bundle()
-            val fragment = MainFragment()
-            fragment.arguments = args
-            return fragment
-        }
+        fun newInstance(args: Bundle?): MainFragment = MainFragment().apply { arguments = args }
     }
 
     override fun getLayoutResId(): Int = R.layout.fragment_main
