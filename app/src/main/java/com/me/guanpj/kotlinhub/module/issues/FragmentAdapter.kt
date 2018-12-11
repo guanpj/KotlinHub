@@ -4,7 +4,6 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.PagerAdapter
-import android.support.v4.viewpager.widget.PagerAdapter
 
 class FragmentAdapter(fm: FragmentManager, private val mFragments: List<FragmentPagerAdapterModel>) : FragmentPagerAdapter(fm) {
 
