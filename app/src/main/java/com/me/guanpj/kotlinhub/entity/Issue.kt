@@ -4,7 +4,6 @@ import android.os.Parcelable
 import android.text.TextUtils
 import com.google.gson.annotations.SerializedName
 import com.me.guanpj.kotlinhub.util.anno.PoKo
-import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 @PoKo

@@ -1,15 +1,15 @@
 package com.me.guanpj.kotlinhub.core
 
 object AppStatus {
-    val STATUS_FORCE_KILLED = -1
-    val STATUS_LOGOUT = 0
-    val STATUS_OFFLINE = 1
-    val STATUS_ONLINE = 2
-    val STATUS_KICK_OUT = 3
+    const val STATUS_FORCE_KILLED = -1
+    const val STATUS_LOGOUT = 0
+    const val STATUS_OFFLINE = 1
+    const val STATUS_ONLINE = 2
+    const val STATUS_KICK_OUT = 3
 
-    val KEY_HOME_ACTION = "key_home_action"
-    val ACTION_BACK_TO_HOME = 0
-    val ACTION_RESTART_APP = 1
-    val ACTION_LOGOUT = 2
-    val ACTION_KICK_OUT = 3
+    const val KEY_HOME_ACTION = "key_home_action"
+    const val ACTION_BACK_TO_HOME = 0
+    const val ACTION_RESTART_APP = 1
+    const val ACTION_LOGOUT = 2
+    const val ACTION_KICK_OUT = 3
 }

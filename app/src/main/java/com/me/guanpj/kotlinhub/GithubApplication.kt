@@ -1,11 +1,11 @@
 package com.me.guanpj.kotlinhub
 
+import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.content.ContextWrapper
 import android.support.multidex.MultiDex
 import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
 import com.me.guanpj.kotlinhub.core.AppStatusTracker
 import com.me.guanpj.kotlinhub.di.component.AppComponent
 import com.me.guanpj.kotlinhub.di.component.DaggerAppComponent
@@ -21,7 +21,7 @@ private lateinit var INSTANCE: Application
 class GithubApplication : Application(), HasActivityInjector, HasSupportFragmentInjector {
 
     @Inject
-    lateinit var mActivityInjector: DispatchingAndroidInjector<AppCompatActivity>
+    lateinit var mActivityInjector: DispatchingAndroidInjector<Activity>
 
     @Inject
     lateinit var mFragmentInjector: DispatchingAndroidInjector<Fragment>
@@ -44,7 +44,7 @@ class GithubApplication : Application(), HasActivityInjector, HasSupportFragment
         super.attachBaseContext(base)
     }
 
-    override fun activityInjector(): AndroidInjector<AppCompatActivity> = mActivityInjector
+    override fun activityInjector(): AndroidInjector<Activity> = mActivityInjector
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> = mFragmentInjector
 

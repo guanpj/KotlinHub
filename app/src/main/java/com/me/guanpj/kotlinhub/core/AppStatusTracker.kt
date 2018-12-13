@@ -1,16 +1,15 @@
 package com.me.guanpj.kotlinhub.core
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Activity
 import android.app.Application
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
-import java.util.*
 
 class AppStatusTracker private constructor(private val application: Application) : Application.ActivityLifecycleCallbacks {
-    private var allActivities: MutableSet<AppCompatActivity>? = null
+    private val allActivities: MutableSet<Activity> by lazy { HashSet<Activity>() }
     private var appStatus = AppStatus.STATUS_FORCE_KILLED
     var isForground: Boolean = false
     private var activeCount: Int = 0
@@ -49,25 +48,25 @@ class AppStatusTracker private constructor(private val application: Application)
         this.isScreenOff = isScreenOff
     }
 
-    override fun onActivityCreated(activity: AppCompatActivity, bundle: Bundle?) {
+    override fun onActivityCreated(activity: Activity?, bundle: Bundle?) {
         addActivity(activity)
     }
 
-    override fun onActivityStarted(activity: AppCompatActivity) {
+    override fun onActivityStarted(activity: Activity?) {
         activeCount++
     }
 
-    override fun onActivityResumed(activity: AppCompatActivity) {
+    override fun onActivityResumed(activity: Activity?) {
         isForground = true
         timestamp = 0L
         isScreenOff = false
     }
 
-    override fun onActivityPaused(activity: AppCompatActivity) {
+    override fun onActivityPaused(activity: Activity?) {
 
     }
 
-    override fun onActivityStopped(activity: AppCompatActivity) {
+    override fun onActivityStopped(activity: Activity?) {
         activeCount--
         if (activeCount == 0) {
             isForground = false
@@ -75,33 +74,26 @@ class AppStatusTracker private constructor(private val application: Application)
         }
     }
 
-    override fun onActivitySaveInstanceState(activity: AppCompatActivity, bundle: Bundle?) {
+    override fun onActivitySaveInstanceState(activity: Activity?, bundle: Bundle?) {
 
     }
 
-    override fun onActivityDestroyed(activity: AppCompatActivity) {
+    override fun onActivityDestroyed(activity: Activity?) {
         removeActivity(activity)
     }
 
-    fun addActivity(act: AppCompatActivity) {
-        if (allActivities == null) {
-            allActivities = HashSet()
-        }
-        allActivities!!.add(act)
+    fun addActivity(act: Activity?) {
+        act?.let { allActivities.add(it) }
     }
 
-    fun removeActivity(act: AppCompatActivity) {
-        if (allActivities != null) {
-            allActivities!!.remove(act)
-        }
+    fun removeActivity(act: Activity?) {
+        act?.let { allActivities.remove(it) }
     }
 
     fun exitApp() {
-        if (allActivities != null) {
-            @Synchronized
-            for (act in allActivities!!) {
-                act.finish()
-            }
+        @Synchronized
+        for (act in allActivities) {
+            act.finish()
         }
         android.os.Process.killProcess(android.os.Process.myPid())
         System.exit(0)
@@ -109,7 +101,7 @@ class AppStatusTracker private constructor(private val application: Application)
 
     private inner class DeamonReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            if (Intent.ACTION_SCREEN_OFF == intent.action) AppStatusTracker.INSTANCE!!.onScreenOff(true)
+            if (Intent.ACTION_SCREEN_OFF == intent.action) AppStatusTracker.INSTANCE?.onScreenOff(true)
         }
     }
 }
