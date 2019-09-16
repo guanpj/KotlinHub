@@ -6,8 +6,11 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 
+@RequiresApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 class AppStatusTracker private constructor(private val application: Application) : Application.ActivityLifecycleCallbacks {
     private val allActivities: MutableSet<Activity> by lazy { HashSet<Activity>() }
     private var appStatus = AppStatus.STATUS_FORCE_KILLED
@@ -101,7 +104,7 @@ class AppStatusTracker private constructor(private val application: Application)
 
     private inner class DeamonReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            if (Intent.ACTION_SCREEN_OFF == intent.action) AppStatusTracker.INSTANCE?.onScreenOff(true)
+            if (Intent.ACTION_SCREEN_OFF == intent.action) INSTANCE?.onScreenOff(true)
         }
     }
 }
