@@ -1,9 +1,9 @@
 package com.me.guanpj.kotlinhub.data.remote.api
 
 import com.me.guanpj.kotlinhub.entity.Event
+import com.me.guanpj.kotlinhub.entity.Repository
 import com.me.guanpj.kotlinhub.entity.User
 import io.reactivex.Observable
-import retrofit2.adapter.rxjava2.GitHubPaging
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -12,7 +12,10 @@ interface UserApi {
     @GET("/user")
     fun getAuthenticatedUser(): Observable<User>
 
-    @GET("/users")
+    @GET("users/{user}/repos")
+    suspend fun getUserRepo(@Path("user") user : String) : List<Repository>
+
+    /*@GET("/users")
     fun allUsers(@Query("since") since: Int, @Query("per_page") per_page: Int = 20): Observable<GitHubPaging<User>>
 
     @GET("/users/{login}/following")
@@ -25,5 +28,5 @@ interface UserApi {
     fun getNewsEvents(@Path("user") user: String, @Query("page") page: Int): Observable<GitHubPaging<Event>>
 
     @GET("users/{user}/events")
-    fun getUserEvents(@Path("user") user: String, @Query("page") page: Int): Observable<GitHubPaging<Event>>
+    fun getUserEvents(@Path("user") user: String, @Query("page") page: Int): Observable<GitHubPaging<Event>>*/
 }

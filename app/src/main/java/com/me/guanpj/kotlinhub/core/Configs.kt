@@ -2,7 +2,6 @@ package com.me.guanpj.kotlinhub.core
 
 import com.me.guanpj.kotlinhub.GithubApplication
 import com.me.guanpj.kotlinhub.ext.deviceId
-import com.me.guanpj.kotlinhub.ext.logger
 
 object Configs {
 
@@ -17,7 +16,9 @@ object Configs {
         const val noteUrl = "http://www.kotliner.cn"
 
         val fingerPrint by lazy {
-            (GithubApplication.AppContext.deviceId + clientId).also { logger.info("fingerPrint: " + it) }
+            (GithubApplication.AppContext.deviceId + clientId).also {
+                //logger.info("fingerPrint: " + it)
+            }
         }
     }
 

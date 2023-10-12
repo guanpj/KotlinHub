@@ -14,7 +14,9 @@ fun File.ensureDir(): Boolean {
             return mkdirs()
         }
     } catch (e: Exception) {
-        Log.w(TAG, e.message)
+        e.message?.let {
+            Log.w(TAG, it)
+        }
     }
     return false
 }

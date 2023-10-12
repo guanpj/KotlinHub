@@ -1,10 +1,7 @@
 package com.me.guanpj.kotlinhub.entity
 
 import com.google.gson.annotations.SerializedName
-import com.me.guanpj.kotlinhub.util.anno.PoKo
 import java.util.*
-
-@PoKo
 data class ReleaseAsset(var id: String,
                         var name: String,
                         var label: String?,

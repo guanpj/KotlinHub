@@ -2,10 +2,8 @@ package com.me.guanpj.kotlinhub.entity
 
 import android.text.TextUtils
 import com.google.gson.annotations.SerializedName
-import com.me.guanpj.kotlinhub.util.anno.PoKo
 import java.util.*
 
-@PoKo
 data class EventPayload(@SerializedName("push_id")
                         var pushId: String,
                         var size: Int,

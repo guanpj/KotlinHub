@@ -1,7 +1,6 @@
 package com.me.guanpj.kotlinhub.data.remote.interceptors
 
 import com.me.guanpj.kotlinhub.data.remote.FORCE_NETWORK
-import com.me.guanpj.kotlinhub.ext.logger
 import com.me.guanpj.kotlinhub.ext.no
 import com.me.guanpj.kotlinhub.ext.otherwise
 import com.me.guanpj.kotlinhub.ext.yes
@@ -22,7 +21,7 @@ class CacheInterceptor : Interceptor {
                             .build()
                 }
                 .otherwise {
-                    request.url().queryParameter(FORCE_NETWORK)?.toBoolean()?.let {
+                    request.url.queryParameter(FORCE_NETWORK)?.toBoolean()?.let {
                         it.yes {
                             //注意 noCache | noStore，前者不会读缓存；后者既不读缓存，也不对响应进行缓存
                             //尽管看上去 noCache 比较符合我们的需求，但服务端仍然可能返回服务端的缓存
@@ -34,9 +33,9 @@ class CacheInterceptor : Interceptor {
                     } ?: request
                 }
 
-        request = request.newBuilder().url(request.url().newBuilder().removeAllQueryParameters(FORCE_NETWORK).build()).build()
+        request = request.newBuilder().url(request.url.newBuilder().removeAllQueryParameters(FORCE_NETWORK).build()).build()
         return chain.proceed(request).also { response ->
-            logger.error("Cache: ${response.cacheResponse()}, Network: ${response.networkResponse()}")
+            //logger.error("Cache: ${response.cacheResponse()}, Network: ${response.networkResponse()}")
         }
     }
 }

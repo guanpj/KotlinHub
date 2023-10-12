@@ -12,7 +12,7 @@ fun OkHttpClient.Builder.enableTls12OnPreLollipop(): OkHttpClient.Builder {
         try {
             val sc = SSLContext.getInstance("TLSv1.2")
             sc.init(null, null, null)
-            sslSocketFactory(Tls12SocketFactory(sc.getSocketFactory()))
+            //sslSocketFactory(Tls12SocketFactory(sc.getSocketFactory()))
 
             val cs = ConnectionSpec.Builder(ConnectionSpec.MODERN_TLS)
                     .tlsVersions(TlsVersion.TLS_1_2)

@@ -1,10 +1,7 @@
 package com.me.guanpj.kotlinhub.entity
 
 import com.google.gson.annotations.SerializedName
-import com.me.guanpj.kotlinhub.util.anno.PoKo
 import java.util.*
-
-@PoKo
 data class Repository(var id: Int,
                         var name: String,
                         @SerializedName("full_name") var fullName: String,

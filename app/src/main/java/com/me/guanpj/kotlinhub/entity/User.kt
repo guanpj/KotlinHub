@@ -1,15 +1,11 @@
 package com.me.guanpj.kotlinhub.entity
 
-import com.me.guanpj.kotlinhub.util.anno.PoKo
-
-@PoKo
 data class BasicUser(
         var login: String,
         var avatar_url: String,
         var html_url: String
     )
 
-@PoKo
 data class User(var login: String,
                 var avatar_url: String,
                 var html_url: String,

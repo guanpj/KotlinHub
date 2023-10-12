@@ -1,10 +1,7 @@
 package com.me.guanpj.kotlinhub.entity
 
 import com.google.gson.annotations.SerializedName
-import com.me.guanpj.kotlinhub.util.anno.PoKo
 import java.util.*
-
-@PoKo
 data class Release(var id: String?,
                    @SerializedName("tag_name") var tagName: String?,
                    @SerializedName("target_commitish") var targetCommitish: String?,

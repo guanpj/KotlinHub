@@ -1,6 +1,5 @@
 package com.me.guanpj.kotlinhub.data.remote
 
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
 import com.me.guanpj.kotlinhub.GithubApplication
 import com.me.guanpj.kotlinhub.data.remote.compat.enableTls12OnPreLollipop
 import com.me.guanpj.kotlinhub.data.remote.interceptors.AcceptInterceptor
@@ -12,7 +11,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.MyRxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
@@ -29,8 +27,6 @@ private val cacheFile by lazy {
 val retrofit by lazy {
     Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(MyRxJava2CallAdapterFactory.create())
-            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(OkHttpClient.Builder()
                     .connectTimeout(60, TimeUnit.SECONDS)
                     .readTimeout(60, TimeUnit.SECONDS)

@@ -8,7 +8,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
+import androidx.annotation.RequiresApi
 
 @RequiresApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 class AppStatusTracker private constructor(private val application: Application) : Application.ActivityLifecycleCallbacks {
@@ -51,25 +51,25 @@ class AppStatusTracker private constructor(private val application: Application)
         this.isScreenOff = isScreenOff
     }
 
-    override fun onActivityCreated(activity: Activity?, bundle: Bundle?) {
+    override fun onActivityCreated(activity: Activity, bundle: Bundle?) {
         addActivity(activity)
     }
 
-    override fun onActivityStarted(activity: Activity?) {
+    override fun onActivityStarted(activity: Activity) {
         activeCount++
     }
 
-    override fun onActivityResumed(activity: Activity?) {
+    override fun onActivityResumed(activity: Activity) {
         isForground = true
         timestamp = 0L
         isScreenOff = false
     }
 
-    override fun onActivityPaused(activity: Activity?) {
+    override fun onActivityPaused(activity: Activity) {
 
     }
 
-    override fun onActivityStopped(activity: Activity?) {
+    override fun onActivityStopped(activity: Activity) {
         activeCount--
         if (activeCount == 0) {
             isForground = false
@@ -77,19 +77,19 @@ class AppStatusTracker private constructor(private val application: Application)
         }
     }
 
-    override fun onActivitySaveInstanceState(activity: Activity?, bundle: Bundle?) {
+    override fun onActivitySaveInstanceState(activity: Activity, bundle: Bundle) {
 
     }
 
-    override fun onActivityDestroyed(activity: Activity?) {
+    override fun onActivityDestroyed(activity: Activity) {
         removeActivity(activity)
     }
 
-    fun addActivity(act: Activity?) {
+    fun addActivity(act: Activity) {
         act?.let { allActivities.add(it) }
     }
 
-    fun removeActivity(act: Activity?) {
+    fun removeActivity(act: Activity) {
         act?.let { allActivities.remove(it) }
     }
 

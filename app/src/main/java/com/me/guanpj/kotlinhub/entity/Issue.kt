@@ -3,10 +3,7 @@ package com.me.guanpj.kotlinhub.entity
 import android.os.Parcelable
 import android.text.TextUtils
 import com.google.gson.annotations.SerializedName
-import com.me.guanpj.kotlinhub.util.anno.PoKo
 import java.util.*
-
-@PoKo
 data class Issue(var id: String?,
                  var number: Int,
                  var title: String?,

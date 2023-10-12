@@ -1,10 +1,7 @@
 package com.me.guanpj.kotlinhub.entity
 
 import com.google.gson.annotations.SerializedName
-import com.me.guanpj.kotlinhub.util.anno.PoKo
 import java.util.*
-
-@PoKo
 data class IssueEvent(var id: String,
                       var user: User?,
                       @SerializedName("created_at") var createdAt: Date?,

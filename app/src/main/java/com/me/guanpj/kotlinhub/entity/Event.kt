@@ -1,7 +1,6 @@
 package com.me.guanpj.kotlinhub.entity
 
 import com.google.gson.annotations.SerializedName
-import com.me.guanpj.kotlinhub.util.anno.PoKo
 import java.util.*
 
 enum class EventType {
@@ -94,8 +93,6 @@ enum class EventType {
     GistEvent
 
 }
-
-@PoKo
 data class Event(var id: String,
                  var type: EventType,
                  var actor: User,

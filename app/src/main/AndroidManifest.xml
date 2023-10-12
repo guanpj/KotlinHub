@@ -14,22 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/ThemeLight">
 
-        <activity android:name=".module.splash.SplashActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme">
+        <activity android:name=".module.MainActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <activity android:name=".module.login.LoginActivity">
-
-        </activity>
-
-        <activity android:name=".module.main.MainActivity">
-
         </activity>
     </application>
 

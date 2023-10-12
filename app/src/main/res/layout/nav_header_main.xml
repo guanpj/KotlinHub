@@ -9,7 +9,7 @@
     android:orientation="horizontal"
     android:padding="@dimen/layout_margin">
 
-    <android.support.v7.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/avatarView"
         android:layout_width="50dp"
         android:layout_height="50dp"
