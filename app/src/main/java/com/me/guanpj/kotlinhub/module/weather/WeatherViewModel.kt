@@ -1,4 +1,4 @@
-package com.me.guanpj.kotlinhub.module
+package com.me.guanpj.kotlinhub.module.weather
 
 import android.graphics.pdf.PdfDocument.Page
 import androidx.lifecycle.MutableLiveData
@@ -11,7 +11,7 @@ import com.me.guanpj.kotlinhub.entity.weather.NowWeatherData
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 
-class MainViewModel: ViewModel() {
+class WeatherViewModel: ViewModel() {
     var status = MutableLiveData<PageState>(PageState.Init)
     private val weatherApi = weatherRetrofit.create(WeatherApi::class.java)
     fun getNowWeather(key: String, location: String) {

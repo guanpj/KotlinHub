@@ -17,6 +17,10 @@
         <activity android:name=".module.MainActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
             android:exported="true">
+        </activity>
+
+        <activity android:name=".module.weather.WeatherActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,14 +1,13 @@
-package com.me.guanpj.kotlinhub.module
+package com.me.guanpj.kotlinhub.module.weather
 
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.viewModelFactory
 import com.me.guanpj.kotlinhub.R
+import com.me.guanpj.kotlinhub.module.MainViewModel
 
-class MainActivity: AppCompatActivity() {
+class WeatherActivity: AppCompatActivity() {
     val mainViewModel: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
