@@ -21,6 +21,15 @@
 
         <activity android:name=".module.weather.WeatherActivity"
             android:exported="true">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+
+        <activity android:name=".auto.TestAutoFixLayoutActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

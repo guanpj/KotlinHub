@@ -35,4 +35,24 @@
         <attr name="originalTop"/>
     </declare-styleable>
 
+    <declare-styleable name="common_uilib_auto_fix_layout">
+        <attr name="common_uilib_line_item_count" format="integer" />
+        <attr name="common_uilib_item_vertical_spacing" format="dimension" />
+        <attr name="common_uilib_item_horizontal_spacing" format="dimension" />
+        <attr name="common_uilib_item_divider_line" format="boolean" />
+        <attr name="common_uilib_adapt_horizontal_margin" format="boolean" />
+        <attr name="common_uilib_adapt_horizontal_padding" format="boolean" />
+        <attr name="common_uilib_outer_divider_line" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="common_uilib_auto_gone_linearlayout">
+        <attr name="common_uilib_dividers_with_line_for_6" format="boolean" />
+        <attr name="common_uilib_adapt_left_right_margin" format="boolean" />
+        <attr name="common_uilib_dividers_with_item_line" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="common_uilib_spacing">
+        <attr name="common_uilib_vertical_spacing" format="dimension" />
+        <attr name="common_uilib_horizontal_spacing" format="dimension" />
+    </declare-styleable>
+
 </resources>
